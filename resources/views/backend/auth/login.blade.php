@@ -2,9 +2,9 @@
 <html lang="vi" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 <head>
     <meta charset="utf-8" />
-    <title>Dang nhap Admin | BDSVanPhuc</title>
+    <title>Đăng nhập Admin | BDSVanPhuc</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Trang dang nhap khu vuc quan tri BDSVanPhuc." />
+    <meta name="description" content="Trang đăng nhập khu vực quản trị BDSVanPhuc." />
     <meta name="author" content="BDSVanPhuc" />
     <link rel="shortcut icon" href="{{ asset('admin-assets/images/favicon.ico') }}">
 
@@ -62,17 +62,17 @@
 
                                             <div class="mt-auto text-white">
                                                 <span class="badge bg-light-subtle text-success text-uppercase mb-3">Velzon inspired</span>
-                                                <h1 class="display-6 fw-semibold text-white mb-3">Quan ly he thong bat dong san tap trung</h1>
+                                                <h1 class="display-6 fw-semibold text-white mb-3">Quản lý hệ thống bất động sản tập trung</h1>
                                                 <p class="fs-15 text-white text-opacity-75 mb-4">
-                                                    Khu vuc nay danh cho quan tri vien theo doi bai dang, duyet noi dung, quan ly khach hang va van hanh du an.
+                                                    Khu vực này dành cho quản trị viên theo dõi bài đăng, duyệt nội dung, quản lý khách hàng và vận hành dự án.
                                                 </p>
 
                                                 <div class="feature-note mb-4">
                                                     <div class="d-flex align-items-start gap-3">
                                                         <i class="ri-shield-check-line fs-3"></i>
                                                         <div>
-                                                            <h5 class="text-white mb-2">Bao mat va ro rang</h5>
-                                                            <p class="mb-0">Giao dien dang nhap duoc tach rieng cho backend, san sang noi voi `auth` va phan quyen o buoc tiep theo.</p>
+                                                            <h5 class="text-white mb-2">Bảo mật và rõ ràng</h5>
+                                                            <p class="mb-0">Giao diện đăng nhập được tách riêng cho backend, sẵn sàng nối với `auth` và phân quyền ở bước tiếp theo.</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -80,15 +80,15 @@
                                                 <div class="row text-center g-3">
                                                     <div class="col-4">
                                                         <h4 class="text-white mb-1">128+</h4>
-                                                        <p class="mb-0 text-white text-opacity-75 small">Bat dong san</p>
+                                                        <p class="mb-0 text-white text-opacity-75 small">Bất động sản</p>
                                                     </div>
                                                     <div class="col-4">
                                                         <h4 class="text-white mb-1">24</h4>
-                                                        <p class="mb-0 text-white text-opacity-75 small">Nhan su</p>
+                                                        <p class="mb-0 text-white text-opacity-75 small">Nhân sự</p>
                                                     </div>
                                                     <div class="col-4">
                                                         <h4 class="text-white mb-1">486</h4>
-                                                        <p class="mb-0 text-white text-opacity-75 small">Khach hang</p>
+                                                        <p class="mb-0 text-white text-opacity-75 small">Khách hàng</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -99,16 +99,16 @@
                                 <div class="col-lg-6">
                                     <div class="p-lg-5 p-4">
                                         <div>
-                                            <h5 class="text-primary">Dang nhap quan tri</h5>
-                                            <p class="text-muted">Nhap thong tin de vao trang admin cua BDSVanPhuc.</p>
+                                            <h5 class="text-primary">Đăng nhập quản trị</h5>
+                                            <p class="text-muted">Nhập thông tin để vào trang admin của BDSVanPhuc.</p>
                                         </div>
 
                                         <div class="mt-4">
                                             <form action="{{ route('backend.admin.authenticate') }}" method="POST">
                                                 @csrf
                                                 <div class="mb-3">
-                                                    <label for="email" class="form-label">Email hoac ten dang nhap</label>
-                                                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email', 'tuan.pn92@gmail.com') }}" placeholder="admin@bdsvanphuc.org">
+                                                    <label for="email" class="form-label">Email hoặc tên đăng nhập</label>
+                                                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" placeholder="admin@bdsvanphuc.org">
                                                     @error('email')
                                                         <div class="invalid-feedback">{{ $message }}</div>
                                                     @enderror
@@ -116,11 +116,11 @@
 
                                                 <div class="mb-3">
                                                     <div class="float-end">
-                                                        <a href="#" class="text-muted">Quen mat khau?</a>
+                                                        <a href="#" class="text-muted">Quên mật khẩu?</a>
                                                     </div>
-                                                    <label class="form-label" for="password-input">Mat khau</label>
+                                                    <label class="form-label" for="password-input">Mật khẩu</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
-                                                        <input type="password" class="form-control pe-5 password-input @error('password') is-invalid @enderror" id="password-input" name="password" value="123456" placeholder="Nhap mat khau">
+                                                        <input type="password" class="form-control pe-5 password-input @error('password') is-invalid @enderror" id="password-input" name="password" placeholder="Nhập mật khẩu">
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon shadow-none" type="button" id="password-addon">
                                                             <i class="ri-eye-fill align-middle"></i>
                                                         </button>
@@ -132,11 +132,11 @@
 
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" value="1" id="auth-remember-check" name="remember">
-                                                    <label class="form-check-label" for="auth-remember-check">Ghi nho dang nhap</label>
+                                                    <label class="form-check-label" for="auth-remember-check">Ghi nhớ đăng nhập</label>
                                                 </div>
 
                                                 <div class="mt-4">
-                                                    <button class="btn btn-success w-100" type="submit">Dang nhap vao admin</button>
+                                                    <button class="btn btn-success w-100" type="submit">Đăng nhập vào admin</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -144,17 +144,13 @@
                                         <div class="mt-4">
                                             @if ($errors->any())
                                                 <div class="alert alert-danger mb-0" role="alert">
-                                                    Dang nhap that bai. Vui long kiem tra email va mat khau.
-                                                </div>
-                                            @else
-                                                <div class="alert alert-info mb-0" role="alert">
-                                                    Tai khoan admin mac dinh: tuan.pn92@gmail.com / 123456
+                                                    Đăng nhập thất bại. Vui lòng kiểm tra email và mật khẩu.
                                                 </div>
                                             @endif
                                         </div>
 
                                         <div class="mt-5 text-center">
-                                            <p class="mb-0">Can quay lai website? <a href="{{ route('frontend.home') }}" class="fw-semibold text-primary text-decoration-underline">Ve trang chu</a></p>
+                                            <p class="mb-0">Cần quay lại website? <a href="{{ route('frontend.home') }}" class="fw-semibold text-primary text-decoration-underline">Về trang chủ</a></p>
                                         </div>
                                     </div>
                                 </div>
