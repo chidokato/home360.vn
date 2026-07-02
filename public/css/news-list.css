@@ -1,0 +1,5 @@
+@media (min-width: 992px) {
+    .news-list-sidebar.sticky-top {
+        top: 105px !important;
+    }
+}

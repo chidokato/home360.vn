@@ -1,0 +1,1218 @@
+[33mcommit 1e7b8b843fb81566167c259067d2ff40cfc8dc70[m
+Author: chidokato <tuan.pn92@gmail.com>
+Date:   Thu Apr 2 11:43:51 2026 +0700
+
+    update
+
+ .editorconfig                                      |    18 [32m+[m
+ .env.example                                       |    52 [32m+[m
+ .gitattributes                                     |    10 [32m+[m
+ .gitignore                                         |    15 [32m+[m
+ .styleci.yml                                       |    14 [32m+[m
+ README.md                                          |    64 [32m+[m
+ app/Console/Kernel.php                             |    32 [32m+[m
+ app/Exceptions/Handler.php                         |    41 [32m+[m
+ app/Http/Controllers/Backend/AdminController.php   |    61 [32m+[m
+ .../Controllers/Backend/CategoryController.php     |   217 [32m+[m
+ app/Http/Controllers/Backend/ContentController.php |   421 [32m+[m
+ app/Http/Controllers/Backend/MenuController.php    |   212 [32m+[m
+ app/Http/Controllers/Backend/SettingController.php |   119 [32m+[m
+ app/Http/Controllers/Backend/UserController.php    |    94 [32m+[m
+ app/Http/Controllers/Controller.php                |    13 [32m+[m
+ .../Frontend/BaseFrontendController.php            |   120 [32m+[m
+ app/Http/Controllers/Frontend/HomeController.php   |    14 [32m+[m
+ app/Http/Controllers/Frontend/PageController.php   |   215 [32m+[m
+ app/Http/Kernel.php                                |    67 [32m+[m
+ app/Http/Middleware/Authenticate.php               |    21 [32m+[m
+ app/Http/Middleware/EncryptCookies.php             |    17 [32m+[m
+ .../PreventRequestsDuringMaintenance.php           |    17 [32m+[m
+ app/Http/Middleware/RedirectIfAuthenticated.php    |    32 [32m+[m
+ app/Http/Middleware/TrimStrings.php                |    19 [32m+[m
+ app/Http/Middleware/TrustHosts.php                 |    20 [32m+[m
+ app/Http/Middleware/TrustProxies.php               |    28 [32m+[m
+ app/Http/Middleware/VerifyCsrfToken.php            |    17 [32m+[m
+ app/Models/Category.php                            |    53 [32m+[m
+ app/Models/Menu.php                                |    36 [32m+[m
+ app/Models/Post.php                                |    72 [32m+[m
+ app/Models/PostImage.php                           |    22 [32m+[m
+ app/Models/Setting.php                             |    26 [32m+[m
+ app/Models/User.php                                |    44 [32m+[m
+ app/Providers/AppServiceProvider.php               |    28 [32m+[m
+ app/Providers/AuthServiceProvider.php              |    30 [32m+[m
+ app/Providers/BroadcastServiceProvider.php         |    21 [32m+[m
+ app/Providers/EventServiceProvider.php             |    32 [32m+[m
+ app/Providers/RouteServiceProvider.php             |    63 [32m+[m
+ artisan                                            |    53 [32m+[m
+ bootstrap/app.php                                  |    55 [32m+[m
+ bootstrap/cache/.gitignore                         |     2 [32m+[m
+ composer.json                                      |    62 [32m+[m
+ composer.lock                                      |  7866 [32m++++++++[m
+ config/app.php                                     |   235 [32m+[m
+ config/auth.php                                    |   111 [32m+[m
+ config/broadcasting.php                            |    64 [32m+[m
+ config/cache.php                                   |   110 [32m+[m
+ config/cors.php                                    |    34 [32m+[m
+ config/database.php                                |   147 [32m+[m
+ config/filesystems.php                             |    73 [32m+[m
+ config/hashing.php                                 |    52 [32m+[m
+ config/logging.php                                 |   118 [32m+[m
+ config/mail.php                                    |   118 [32m+[m
+ config/queue.php                                   |    93 [32m+[m
+ config/sanctum.php                                 |    65 [32m+[m
+ config/services.php                                |    33 [32m+[m
+ config/session.php                                 |   201 [32m+[m
+ config/view.php                                    |    36 [32m+[m
+ database/.gitignore                                |     1 [32m+[m
+ database/factories/UserFactory.php                 |    39 [32m+[m
+ .../2014_10_12_000000_create_users_table.php       |    36 [32m+[m
+ ...4_10_12_100000_create_password_resets_table.php |    32 [32m+[m
+ .../2019_08_19_000000_create_failed_jobs_table.php |    36 [32m+[m
+ ..._000001_create_personal_access_tokens_table.php |    36 [32m+[m
+ .../2026_03_27_000000_create_categories_table.php  |    27 [32m+[m
+ ...6_03_27_010000_add_type_to_categories_table.php |    26 [32m+[m
+ .../2026_03_27_020000_create_posts_table.php       |    32 [32m+[m
+ .../2026_03_27_030000_create_post_images_table.php |    24 [32m+[m
+ ...d_seo_fields_to_categories_and_posts_tables.php |    32 [32m+[m
+ .../2026_03_28_010000_create_settings_table.php    |    29 [32m+[m
+ .../2026_03_28_020000_create_menus_table.php       |    28 [32m+[m
+ ...2026_03_28_021000_drop_url_from_menus_table.php |    22 [32m+[m
+ ...0_160000_add_property_fields_to_posts_table.php |    34 [32m+[m
+ ...00_add_property_range_fields_to_posts_table.php |    78 [32m+[m
+ database/seeders/AdminUserSeeder.php               |    21 [32m+[m
+ database/seeders/DatabaseSeeder.php                |    20 [32m+[m
+ package.json                                       |    18 [32m+[m
+ phpunit.xml                                        |    31 [32m+[m
+ public/.htaccess                                   |    21 [32m+[m
+ public/admin-assets/css/app.min.css                |     8 [32m+[m
+ public/admin-assets/css/bootstrap.min.css          |     6 [32m+[m
+ public/admin-assets/css/custom.min.css             |     2 [32m+[m
+ public/admin-assets/css/icons.min.css              |     2 [32m+[m
+ public/admin-assets/fonts/boxicons.eot             |   Bin [31m0[m -> [32m405670[m bytes
+ public/admin-assets/fonts/boxicons.ttf             |   Bin [31m0[m -> [32m320944[m bytes
+ public/admin-assets/fonts/boxicons.woff            |   Bin [31m0[m -> [32m321020[m bytes
+ public/admin-assets/fonts/boxicons.woff2           |   Bin [31m0[m -> [32m115680[m bytes
+ public/admin-assets/fonts/boxiconsd41d.svg.tmp     |   Bin [31m0[m -> [32m1259034[m bytes
+ public/admin-assets/fonts/la-brands-400.eot        |   Bin [31m0[m -> [32m156260[m bytes
+ public/admin-assets/fonts/la-brands-400.svg.tmp    |   Bin [31m0[m -> [32m945560[m bytes
+ public/admin-assets/fonts/la-brands-400.ttf        |   Bin [31m0[m -> [32m156072[m bytes
+ public/admin-assets/fonts/la-brands-400.woff       |   Bin [31m0[m -> [32m98673[m bytes
+ public/admin-assets/fonts/la-brands-400.woff2      |   Bin [31m0[m -> [32m84772[m bytes
+ public/admin-assets/fonts/la-brands-400d41d.eot    |   Bin [31m0[m -> [32m156260[m bytes
+ public/admin-assets/fonts/la-regular-400.eot       |   Bin [31m0[m -> [32m33916[m bytes
+ public/admin-assets/fonts/la-regular-400.svg.tmp   |   Bin [31m0[m -> [32m130914[m bytes
+ public/admin-assets/fonts/la-regular-400.ttf       |   Bin [31m0[m -> [32m33724[m bytes
+ public/admin-assets/fonts/la-regular-400.woff      |   Bin [31m0[m -> [32m15489[m bytes
+ public/admin-assets/fonts/la-regular-400.woff2     |   Bin [31m0[m -> [32m12900[m bytes
+ public/admin-assets/fonts/la-regular-400d41d.eot   |   Bin [31m0[m -> [32m33916[m bytes
+ public/admin-assets/fonts/la-solid-900.eot         |   Bin [31m0[m -> [32m226312[m bytes
+ public/admin-assets/fonts/la-solid-900.svg.tmp     |   Bin [31m0[m -> [32m942957[m bytes
+ public/admin-assets/fonts/la-solid-900.ttf         |   Bin [31m0[m -> [32m226128[m bytes
+ public/admin-assets/fonts/la-solid-900.woff        |   Bin [31m0[m -> [32m125421[m bytes
+ public/admin-assets/fonts/la-solid-900.woff2       |   Bin [31m0[m -> [32m96752[m bytes
+ public/admin-assets/fonts/la-solid-900d41d.eot     |   Bin [31m0[m -> [32m226312[m bytes
+ .../fonts/materialdesignicons-webfont9445.eot      |   Bin [31m0[m -> [32m1280212[m bytes
+ .../fonts/materialdesignicons-webfont9445.ttf      |   Bin [31m0[m -> [32m1279992[m bytes
+ .../fonts/materialdesignicons-webfont9445.woff     |   Bin [31m0[m -> [32m576748[m bytes
+ .../fonts/materialdesignicons-webfont9445.woff2    |   Bin [31m0[m -> [32m396732[m bytes
+ .../fonts/materialdesignicons-webfontd41d.eot      |   Bin [31m0[m -> [32m1280212[m bytes
+ public/admin-assets/fonts/remixiconca45.eot        |   Bin [31m0[m -> [32m470336[m bytes
+ public/admin-assets/fonts/remixiconca45.svg.tmp    |   Bin [31m0[m -> [32m2338886[m bytes
+ public/admin-assets/fonts/remixiconca45.ttf        |   Bin [31m0[m -> [32m470164[m bytes
+ public/admin-assets/fonts/remixiconca45.woff       |   Bin [31m0[m -> [32m201264[m bytes
+ public/admin-assets/fonts/remixiconca45.woff2      |   Bin [31m0[m -> [32m145956[m bytes
+ public/admin-assets/images/about.jpg               |   Bin [31m0[m -> [32m91677[m bytes
+ public/admin-assets/images/auth-one-bg.jpg         |   Bin [31m0[m -> [32m239959[m bytes
+ public/admin-assets/images/bg-d.png                |   Bin [31m0[m -> [32m6888[m bytes
+ public/admin-assets/images/bg-d.png.tmp            |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/images/blog/img-1.jpg          |   Bin [31m0[m -> [32m184523[m bytes
+ public/admin-assets/images/blog/img-2.jpg          |   Bin [31m0[m -> [32m140813[m bytes
+ public/admin-assets/images/blog/img-3.jpg          |   Bin [31m0[m -> [32m158131[m bytes
+ public/admin-assets/images/blog/img-4.jpg          |   Bin [31m0[m -> [32m128990[m bytes
+ public/admin-assets/images/blog/img-5.jpg          |   Bin [31m0[m -> [32m152324[m bytes
+ public/admin-assets/images/blog/img-6.jpg          |   Bin [31m0[m -> [32m135523[m bytes
+ public/admin-assets/images/blog/overview.jpg       |   Bin [31m0[m -> [32m219765[m bytes
+ public/admin-assets/images/brands/bitbucket.png    |   Bin [31m0[m -> [32m701[m bytes
+ public/admin-assets/images/brands/dribbble.png     |   Bin [31m0[m -> [32m911[m bytes
+ public/admin-assets/images/brands/dropbox.png      |   Bin [31m0[m -> [32m772[m bytes
+ public/admin-assets/images/brands/github.png       |   Bin [31m0[m -> [32m1454[m bytes
+ public/admin-assets/images/brands/mail_chimp.png   |   Bin [31m0[m -> [32m1428[m bytes
+ public/admin-assets/images/brands/slack.png        |   Bin [31m0[m -> [32m2691[m bytes
+ public/admin-assets/images/clients/amazon.svg.tmp  |   Bin [31m0[m -> [32m20459[m bytes
+ public/admin-assets/images/clients/lenovo.svg.tmp  |   Bin [31m0[m -> [32m18987[m bytes
+ public/admin-assets/images/clients/paypal.svg.tmp  |   Bin [31m0[m -> [32m20655[m bytes
+ public/admin-assets/images/clients/shopify.svg.tmp |   Bin [31m0[m -> [32m20194[m bytes
+ public/admin-assets/images/clients/verizon.svg.tmp |   Bin [31m0[m -> [32m18153[m bytes
+ public/admin-assets/images/clients/walmart.svg.tmp |   Bin [31m0[m -> [32m19774[m bytes
+ public/admin-assets/images/comingsoon.png          |   Bin [31m0[m -> [32m56947[m bytes
+ public/admin-assets/images/companies/img-1.png     |   Bin [31m0[m -> [32m6452[m bytes
+ public/admin-assets/images/companies/img-2.png     |   Bin [31m0[m -> [32m6366[m bytes
+ public/admin-assets/images/companies/img-3.png     |   Bin [31m0[m -> [32m5248[m bytes
+ public/admin-assets/images/companies/img-4.png     |   Bin [31m0[m -> [32m6714[m bytes
+ public/admin-assets/images/companies/img-4.png.tmp |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/images/companies/img-5.png     |   Bin [31m0[m -> [32m4726[m bytes
+ public/admin-assets/images/companies/img-6.png     |   Bin [31m0[m -> [32m3015[m bytes
+ public/admin-assets/images/companies/img-6.png.tmp |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/images/companies/img-7.png     |   Bin [31m0[m -> [32m1657[m bytes
+ public/admin-assets/images/companies/img-7.png.tmp |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/images/companies/img-8.png     |   Bin [31m0[m -> [32m2579[m bytes
+ public/admin-assets/images/companies/img-8.png.tmp |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/images/companies/img-9.png     |   Bin [31m0[m -> [32m7527[m bytes
+ public/admin-assets/images/demos/creative.png      |   Bin [31m0[m -> [32m41433[m bytes
+ public/admin-assets/images/demos/default.png       |   Bin [31m0[m -> [32m56435[m bytes
+ public/admin-assets/images/demos/interactive.png   |   Bin [31m0[m -> [32m42524[m bytes
+ public/admin-assets/images/demos/material.png      |   Bin [31m0[m -> [32m45795[m bytes
+ public/admin-assets/images/demos/minimal.png       |   Bin [31m0[m -> [32m46692[m bytes
+ public/admin-assets/images/demos/modern.png        |   Bin [31m0[m -> [32m52985[m bytes
+ public/admin-assets/images/demos/saas.png          |   Bin [31m0[m -> [32m39030[m bytes
+ public/admin-assets/images/error.svg.tmp           |   Bin [31m0[m -> [32m22725[m bytes
+ public/admin-assets/images/error400-cover.png      |   Bin [31m0[m -> [32m49349[m bytes
+ public/admin-assets/images/error500.png            |   Bin [31m0[m -> [32m5386[m bytes
+ public/admin-assets/images/error500.png.tmp        |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/images/faq-img.png             |   Bin [31m0[m -> [32m62727[m bytes
+ public/admin-assets/images/favicon.ico             |   Bin [31m0[m -> [32m113853[m bytes
+ public/admin-assets/images/flags/ae.svg            |     6 [32m+[m
+ public/admin-assets/images/flags/china.svg         |    42 [32m+[m
+ public/admin-assets/images/flags/french.svg        |     6 [32m+[m
+ public/admin-assets/images/flags/germany.svg       |    37 [32m+[m
+ public/admin-assets/images/flags/italy.svg         |    37 [32m+[m
+ public/admin-assets/images/flags/russia.svg        |    37 [32m+[m
+ public/admin-assets/images/flags/spain.svg         |    89 [32m+[m
+ public/admin-assets/images/flags/us.svg            |   171 [32m+[m
+ public/admin-assets/images/giftbox.png             |   Bin [31m0[m -> [32m1373[m bytes
+ public/admin-assets/images/illustrator-1.png       |   Bin [31m0[m -> [32m4060[m bytes
+ public/admin-assets/images/job-profile2.png        |   Bin [31m0[m -> [32m401538[m bytes
+ .../admin-assets/images/landing/features/img-1.png |   Bin [31m0[m -> [32m18658[m bytes
+ .../admin-assets/images/landing/features/img-2.png |   Bin [31m0[m -> [32m183967[m bytes
+ .../admin-assets/images/landing/features/img-3.png |   Bin [31m0[m -> [32m25545[m bytes
+ public/admin-assets/images/landing/img-pattern.png |   Bin [31m0[m -> [32m18964[m bytes
+ .../images/landing/process-arrow-img.png           |   Bin [31m0[m -> [32m8889[m bytes
+ public/admin-assets/images/logo-dark.png           |   Bin [31m0[m -> [32m3960[m bytes
+ public/admin-assets/images/logo-light.png          |   Bin [31m0[m -> [32m3722[m bytes
+ public/admin-assets/images/logo-sm.png             |   Bin [31m0[m -> [32m7222[m bytes
+ public/admin-assets/images/mac-img.png             |   Bin [31m0[m -> [32m8563[m bytes
+ public/admin-assets/images/mac-img.png.tmp         |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/images/maintenance.png         |   Bin [31m0[m -> [32m30168[m bytes
+ public/admin-assets/images/modals/login.png        |   Bin [31m0[m -> [32m30996[m bytes
+ public/admin-assets/images/modals/signup.png       |   Bin [31m0[m -> [32m29916[m bytes
+ public/admin-assets/images/modals/subscribe.png    |   Bin [31m0[m -> [32m65148[m bytes
+ .../admin-assets/images/modals/success-payment.png |   Bin [31m0[m -> [32m33981[m bytes
+ public/admin-assets/images/new-document.png        |   Bin [31m0[m -> [32m2144[m bytes
+ public/admin-assets/images/new-document.png.tmp    |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/images/nft/add.png             |   Bin [31m0[m -> [32m4319[m bytes
+ public/admin-assets/images/nft/bg-pattern.png      |   Bin [31m0[m -> [32m28524[m bytes
+ public/admin-assets/images/nft/img-01.jpg          |   Bin [31m0[m -> [32m85315[m bytes
+ public/admin-assets/images/nft/img-02.jpg          |   Bin [31m0[m -> [32m90559[m bytes
+ public/admin-assets/images/nft/img-03.jpg          |   Bin [31m0[m -> [32m187633[m bytes
+ public/admin-assets/images/nft/img-04.jpg          |   Bin [31m0[m -> [32m43345[m bytes
+ public/admin-assets/images/nft/img-05.jpg          |   Bin [31m0[m -> [32m66792[m bytes
+ public/admin-assets/images/nft/img-06.jpg          |   Bin [31m0[m -> [32m84859[m bytes
+ public/admin-assets/images/nft/money.png           |   Bin [31m0[m -> [32m6752[m bytes
+ public/admin-assets/images/nft/money.png.tmp       |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/images/nft/sell.png            |   Bin [31m0[m -> [32m6815[m bytes
+ public/admin-assets/images/nft/wallet.png          |   Bin [31m0[m -> [32m4205[m bytes
+ public/admin-assets/images/nft/wallet.png.tmp      |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/images/nft/wallet/alpha.png    |   Bin [31m0[m -> [32m9610[m bytes
+ public/admin-assets/images/nft/wallet/binance.png  |   Bin [31m0[m -> [32m16509[m bytes
+ public/admin-assets/images/nft/wallet/coinbase.png |   Bin [31m0[m -> [32m11919[m bytes
+ public/admin-assets/images/nft/wallet/enjin.png    |   Bin [31m0[m -> [32m13421[m bytes
+ public/admin-assets/images/nft/wallet/kukai.png    |   Bin [31m0[m -> [32m3444[m bytes
+ .../admin-assets/images/nft/wallet/kukai.png.tmp   |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/images/nft/wallet/math.png     |   Bin [31m0[m -> [32m36191[m bytes
+ public/admin-assets/images/nft/wallet/metamask.png |   Bin [31m0[m -> [32m28124[m bytes
+ public/admin-assets/images/products/img-1.png      |   Bin [31m0[m -> [32m62563[m bytes
+ public/admin-assets/images/products/img-10.png     |   Bin [31m0[m -> [32m87224[m bytes
+ public/admin-assets/images/products/img-2.png      |   Bin [31m0[m -> [32m54572[m bytes
+ public/admin-assets/images/products/img-3.png      |   Bin [31m0[m -> [32m100267[m bytes
+ public/admin-assets/images/products/img-4.png      |   Bin [31m0[m -> [32m91172[m bytes
+ public/admin-assets/images/products/img-5.png      |   Bin [31m0[m -> [32m68652[m bytes
+ public/admin-assets/images/products/img-6.png      |   Bin [31m0[m -> [32m73544[m bytes
+ public/admin-assets/images/products/img-7.png      |   Bin [31m0[m -> [32m82257[m bytes
+ public/admin-assets/images/products/img-8.png      |   Bin [31m0[m -> [32m81246[m bytes
+ public/admin-assets/images/profile-bg.jpg          |   Bin [31m0[m -> [32m158928[m bytes
+ public/admin-assets/images/sidebar/img-1.jpg       |   Bin [31m0[m -> [32m210932[m bytes
+ public/admin-assets/images/sidebar/img-2.jpg       |   Bin [31m0[m -> [32m109302[m bytes
+ public/admin-assets/images/sidebar/img-3.jpg       |   Bin [31m0[m -> [32m181716[m bytes
+ public/admin-assets/images/sidebar/img-4.jpg       |   Bin [31m0[m -> [32m126084[m bytes
+ public/admin-assets/images/small/img-1.jpg         |   Bin [31m0[m -> [32m26148[m bytes
+ public/admin-assets/images/small/img-10.jpg        |   Bin [31m0[m -> [32m88643[m bytes
+ public/admin-assets/images/small/img-11.jpg        |   Bin [31m0[m -> [32m55425[m bytes
+ public/admin-assets/images/small/img-12.jpg        |   Bin [31m0[m -> [32m27320[m bytes
+ public/admin-assets/images/small/img-2.jpg         |   Bin [31m0[m -> [32m46560[m bytes
+ public/admin-assets/images/small/img-3.jpg         |   Bin [31m0[m -> [32m45714[m bytes
+ public/admin-assets/images/small/img-4.jpg         |   Bin [31m0[m -> [32m8754[m bytes
+ public/admin-assets/images/small/img-5.jpg         |   Bin [31m0[m -> [32m8082[m bytes
+ public/admin-assets/images/small/img-5.jpg.tmp     |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/images/small/img-6.jpg         |   Bin [31m0[m -> [32m19823[m bytes
+ public/admin-assets/images/small/img-7.jpg         |   Bin [31m0[m -> [32m89332[m bytes
+ public/admin-assets/images/small/img-8.jpg         |   Bin [31m0[m -> [32m108403[m bytes
+ public/admin-assets/images/small/img-9.jpg         |   Bin [31m0[m -> [32m43769[m bytes
+ public/admin-assets/images/svg/bell.svg.tmp        |   Bin [31m0[m -> [32m21902[m bytes
+ .../images/svg/crypto-icons/$pac.svg.tmp           |   Bin [31m0[m -> [32m17851[m bytes
+ .../images/svg/crypto-icons/0xbtc.svg.tmp          |   Bin [31m0[m -> [32m17722[m bytes
+ .../images/svg/crypto-icons/2give.svg.tmp          |   Bin [31m0[m -> [32m20612[m bytes
+ .../images/svg/crypto-icons/aave.svg.tmp           |   Bin [31m0[m -> [32m17630[m bytes
+ .../images/svg/crypto-icons/abt.svg.tmp            |   Bin [31m0[m -> [32m17781[m bytes
+ .../images/svg/crypto-icons/act.svg.tmp            |   Bin [31m0[m -> [32m17339[m bytes
+ .../images/svg/crypto-icons/actn.svg.tmp           |   Bin [31m0[m -> [32m18013[m bytes
+ .../images/svg/crypto-icons/ada.svg.tmp            |   Bin [31m0[m -> [32m20787[m bytes
+ .../images/svg/crypto-icons/add.svg.tmp            |   Bin [31m0[m -> [32m17532[m bytes
+ .../images/svg/crypto-icons/adx.svg.tmp            |   Bin [31m0[m -> [32m17387[m bytes
+ .../images/svg/crypto-icons/ae.svg.tmp             |   Bin [31m0[m -> [32m17955[m bytes
+ .../images/svg/crypto-icons/aeon.svg.tmp           |   Bin [31m0[m -> [32m19288[m bytes
+ .../images/svg/crypto-icons/aeur.svg.tmp           |   Bin [31m0[m -> [32m18083[m bytes
+ .../images/svg/crypto-icons/agi.svg.tmp            |   Bin [31m0[m -> [32m18294[m bytes
+ .../images/svg/crypto-icons/agrs.svg.tmp           |   Bin [31m0[m -> [32m17771[m bytes
+ .../images/svg/crypto-icons/aion.svg.tmp           |   Bin [31m0[m -> [32m17998[m bytes
+ .../images/svg/crypto-icons/algo.svg.tmp           |   Bin [31m0[m -> [32m17400[m bytes
+ .../images/svg/crypto-icons/amb.svg.tmp            |   Bin [31m0[m -> [32m18801[m bytes
+ .../images/svg/crypto-icons/amp.svg.tmp            |   Bin [31m0[m -> [32m20234[m bytes
+ .../images/svg/crypto-icons/ampl.svg.tmp           |   Bin [31m0[m -> [32m18366[m bytes
+ .../images/svg/crypto-icons/ankr.svg.tmp           |   Bin [31m0[m -> [32m17812[m bytes
+ .../images/svg/crypto-icons/ant.svg.tmp            |   Bin [31m0[m -> [32m18366[m bytes
+ .../images/svg/crypto-icons/apex.svg.tmp           |   Bin [31m0[m -> [32m17206[m bytes
+ .../images/svg/crypto-icons/appc.svg.tmp           |   Bin [31m0[m -> [32m17848[m bytes
+ .../images/svg/crypto-icons/ardr.svg.tmp           |   Bin [31m0[m -> [32m17212[m bytes
+ .../images/svg/crypto-icons/arg.svg.tmp            |   Bin [31m0[m -> [32m17721[m bytes
+ .../images/svg/crypto-icons/ark.svg.tmp            |   Bin [31m0[m -> [32m17234[m bytes
+ .../images/svg/crypto-icons/arn.svg.tmp            |   Bin [31m0[m -> [32m18353[m bytes
+ .../images/svg/crypto-icons/arnx.svg.tmp           |   Bin [31m0[m -> [32m26130[m bytes
+ .../images/svg/crypto-icons/ary.svg.tmp            |   Bin [31m0[m -> [32m17814[m bytes
+ .../images/svg/crypto-icons/ast.svg.tmp            |   Bin [31m0[m -> [32m18054[m bytes
+ .../images/svg/crypto-icons/atm.svg.tmp            |   Bin [31m0[m -> [32m17500[m bytes
+ .../images/svg/crypto-icons/atom.svg.tmp           |   Bin [31m0[m -> [32m18601[m bytes
+ .../images/svg/crypto-icons/audr.svg.tmp           |   Bin [31m0[m -> [32m17461[m bytes
+ .../images/svg/crypto-icons/auto.svg.tmp           |   Bin [31m0[m -> [32m17349[m bytes
+ .../images/svg/crypto-icons/aywa.svg.tmp           |   Bin [31m0[m -> [32m19103[m bytes
+ .../images/svg/crypto-icons/bab.svg.tmp            |   Bin [31m0[m -> [32m17526[m bytes
+ .../images/svg/crypto-icons/bal.svg.tmp            |   Bin [31m0[m -> [32m17667[m bytes
+ .../images/svg/crypto-icons/band.svg.tmp           |   Bin [31m0[m -> [32m17358[m bytes
+ .../images/svg/crypto-icons/bat.svg.tmp            |   Bin [31m0[m -> [32m17149[m bytes
+ .../images/svg/crypto-icons/bay.svg.tmp            |   Bin [31m0[m -> [32m17840[m bytes
+ .../images/svg/crypto-icons/bcbc.svg.tmp           |   Bin [31m0[m -> [32m18001[m bytes
+ .../images/svg/crypto-icons/bcc.svg.tmp            |   Bin [31m0[m -> [32m18102[m bytes
+ .../images/svg/crypto-icons/bcd.svg.tmp            |   Bin [31m0[m -> [32m18132[m bytes
+ .../images/svg/crypto-icons/bch.svg.tmp            |   Bin [31m0[m -> [32m17871[m bytes
+ .../images/svg/crypto-icons/bcio.svg.tmp           |   Bin [31m0[m -> [32m18146[m bytes
+ .../images/svg/crypto-icons/bcn.svg.tmp            |   Bin [31m0[m -> [32m17600[m bytes
+ .../images/svg/crypto-icons/bco.svg.tmp            |   Bin [31m0[m -> [32m19865[m bytes
+ .../images/svg/crypto-icons/bcpt.svg.tmp           |   Bin [31m0[m -> [32m17584[m bytes
+ .../images/svg/crypto-icons/bdl.svg.tmp            |   Bin [31m0[m -> [32m17897[m bytes
+ .../images/svg/crypto-icons/beam.svg.tmp           |   Bin [31m0[m -> [32m17441[m bytes
+ .../images/svg/crypto-icons/bela.svg.tmp           |   Bin [31m0[m -> [32m17381[m bytes
+ .../images/svg/crypto-icons/bix.svg.tmp            |   Bin [31m0[m -> [32m18223[m bytes
+ .../images/svg/crypto-icons/blcn.svg.tmp           |   Bin [31m0[m -> [32m17422[m bytes
+ .../images/svg/crypto-icons/blk.svg.tmp            |   Bin [31m0[m -> [32m17958[m bytes
+ .../images/svg/crypto-icons/block.svg.tmp          |   Bin [31m0[m -> [32m17326[m bytes
+ .../images/svg/crypto-icons/blz.svg.tmp            |   Bin [31m0[m -> [32m18966[m bytes
+ .../images/svg/crypto-icons/bnb.svg.tmp            |   Bin [31m0[m -> [32m17417[m bytes
+ .../images/svg/crypto-icons/bnt.svg.tmp            |   Bin [31m0[m -> [32m17328[m bytes
+ .../images/svg/crypto-icons/bnty.svg.tmp           |   Bin [31m0[m -> [32m18278[m bytes
+ .../images/svg/crypto-icons/booty.svg.tmp          |   Bin [31m0[m -> [32m19075[m bytes
+ .../images/svg/crypto-icons/bos.svg.tmp            |   Bin [31m0[m -> [32m17471[m bytes
+ .../images/svg/crypto-icons/bpt.svg.tmp            |   Bin [31m0[m -> [32m19967[m bytes
+ .../images/svg/crypto-icons/bq.svg.tmp             |   Bin [31m0[m -> [32m17868[m bytes
+ .../images/svg/crypto-icons/brd.svg.tmp            |   Bin [31m0[m -> [32m17712[m bytes
+ .../images/svg/crypto-icons/bsd.svg.tmp            |   Bin [31m0[m -> [32m17190[m bytes
+ .../images/svg/crypto-icons/bsv.svg.tmp            |   Bin [31m0[m -> [32m26218[m bytes
+ .../images/svg/crypto-icons/btc.svg.tmp            |   Bin [31m0[m -> [32m17865[m bytes
+ .../images/svg/crypto-icons/btcd.svg.tmp           |   Bin [31m0[m -> [32m17414[m bytes
+ .../images/svg/crypto-icons/btch.svg.tmp           |   Bin [31m0[m -> [32m19160[m bytes
+ .../images/svg/crypto-icons/btcp.svg.tmp           |   Bin [31m0[m -> [32m18070[m bytes
+ .../images/svg/crypto-icons/btcz.svg.tmp           |   Bin [31m0[m -> [32m18670[m bytes
+ .../images/svg/crypto-icons/btdx.svg.tmp           |   Bin [31m0[m -> [32m18578[m bytes
+ .../images/svg/crypto-icons/btg.svg.tmp            |   Bin [31m0[m -> [32m18434[m bytes
+ .../images/svg/crypto-icons/btm.svg.tmp            |   Bin [31m0[m -> [32m17587[m bytes
+ .../images/svg/crypto-icons/bts.svg.tmp            |   Bin [31m0[m -> [32m18254[m bytes
+ .../images/svg/crypto-icons/btt.svg.tmp            |   Bin [31m0[m -> [32m19772[m bytes
+ .../images/svg/crypto-icons/btx.svg.tmp            |   Bin [31m0[m -> [32m20020[m bytes
+ .../images/svg/crypto-icons/burst.svg.tmp          |   Bin [31m0[m -> [32m17562[m bytes
+ .../images/svg/crypto-icons/bze.svg.tmp            |   Bin [31m0[m -> [32m17495[m bytes
+ .../images/svg/crypto-icons/call.svg.tmp           |   Bin [31m0[m -> [32m20196[m bytes
+ .../images/svg/crypto-icons/cc.svg.tmp             |   Bin [31m0[m -> [32m19238[m bytes
+ .../images/svg/crypto-icons/cdn.svg.tmp            |   Bin [31m0[m -> [32m17721[m bytes
+ .../images/svg/crypto-icons/cdt.svg.tmp            |   Bin [31m0[m -> [32m17604[m bytes
+ .../images/svg/crypto-icons/cenz.svg.tmp           |   Bin [31m0[m -> [32m18770[m bytes
+ .../images/svg/crypto-icons/chain.svg.tmp          |   Bin [31m0[m -> [32m17364[m bytes
+ .../images/svg/crypto-icons/chat.svg.tmp           |   Bin [31m0[m -> [32m18472[m bytes
+ .../images/svg/crypto-icons/chips.svg.tmp          |   Bin [31m0[m -> [32m18280[m bytes
+ .../images/svg/crypto-icons/chsb.svg.tmp           |   Bin [31m0[m -> [32m18010[m bytes
+ .../images/svg/crypto-icons/cix.svg.tmp            |   Bin [31m0[m -> [32m17457[m bytes
+ .../images/svg/crypto-icons/clam.svg.tmp           |   Bin [31m0[m -> [32m19361[m bytes
+ .../images/svg/crypto-icons/cloak.svg.tmp          |   Bin [31m0[m -> [32m18288[m bytes
+ .../images/svg/crypto-icons/cmm.svg.tmp            |   Bin [31m0[m -> [32m17532[m bytes
+ .../images/svg/crypto-icons/cmt.svg.tmp            |   Bin [31m0[m -> [32m19026[m bytes
+ .../images/svg/crypto-icons/cnd.svg.tmp            |   Bin [31m0[m -> [32m17473[m bytes
+ .../images/svg/crypto-icons/cnx.svg.tmp            |   Bin [31m0[m -> [32m17991[m bytes
+ .../images/svg/crypto-icons/cny.svg.tmp            |   Bin [31m0[m -> [32m17516[m bytes
+ .../images/svg/crypto-icons/cob.svg.tmp            |   Bin [31m0[m -> [32m17495[m bytes
+ .../images/svg/crypto-icons/colx.svg.tmp           |   Bin [31m0[m -> [32m19132[m bytes
+ .../images/svg/crypto-icons/comp.svg.tmp           |   Bin [31m0[m -> [32m17708[m bytes
+ .../images/svg/crypto-icons/coqui.svg.tmp          |   Bin [31m0[m -> [32m18630[m bytes
+ .../images/svg/crypto-icons/cred.svg.tmp           |   Bin [31m0[m -> [32m17266[m bytes
+ .../images/svg/crypto-icons/crpt.svg.tmp           |   Bin [31m0[m -> [32m18091[m bytes
+ .../images/svg/crypto-icons/crv.svg.tmp            |   Bin [31m0[m -> [32m17641[m bytes
+ .../images/svg/crypto-icons/crw.svg.tmp            |   Bin [31m0[m -> [32m18291[m bytes
+ .../images/svg/crypto-icons/cs.svg.tmp             |   Bin [31m0[m -> [32m17953[m bytes
+ .../images/svg/crypto-icons/ctr.svg.tmp            |   Bin [31m0[m -> [32m17562[m bytes
+ .../images/svg/crypto-icons/ctxc.svg.tmp           |   Bin [31m0[m -> [32m17776[m bytes
+ .../images/svg/crypto-icons/cvc.svg.tmp            |   Bin [31m0[m -> [32m17454[m bytes
+ .../admin-assets/images/svg/crypto-icons/d.svg.tmp |   Bin [31m0[m -> [32m89579[m bytes
+ .../images/svg/crypto-icons/dai.svg.tmp            |   Bin [31m0[m -> [32m17556[m bytes
+ .../images/svg/crypto-icons/dash.svg.tmp           |   Bin [31m0[m -> [32m17516[m bytes
+ .../images/svg/crypto-icons/dat.svg.tmp            |   Bin [31m0[m -> [32m17854[m bytes
+ .../images/svg/crypto-icons/data.svg.tmp           |   Bin [31m0[m -> [32m17936[m bytes
+ .../images/svg/crypto-icons/dbc.svg.tmp            |   Bin [31m0[m -> [32m21765[m bytes
+ .../images/svg/crypto-icons/dcn.svg.tmp            |   Bin [31m0[m -> [32m17531[m bytes
+ .../images/svg/crypto-icons/dcr.svg.tmp            |   Bin [31m0[m -> [32m17468[m bytes
+ .../images/svg/crypto-icons/deez.svg.tmp           |   Bin [31m0[m -> [32m17965[m bytes
+ .../images/svg/crypto-icons/dent.svg.tmp           |   Bin [31m0[m -> [32m18369[m bytes
+ .../images/svg/crypto-icons/dew.svg.tmp            |   Bin [31m0[m -> [32m17937[m bytes
+ .../images/svg/crypto-icons/dgb.svg.tmp            |   Bin [31m0[m -> [32m18320[m bytes
+ .../images/svg/crypto-icons/dgd.svg.tmp            |   Bin [31m0[m -> [32m17183[m bytes
+ .../images/svg/crypto-icons/dlt.svg.tmp            |   Bin [31m0[m -> [32m17487[m bytes
+ .../images/svg/crypto-icons/dnt.svg.tmp            |   Bin [31m0[m -> [32m17932[m bytes
+ .../images/svg/crypto-icons/dock.svg.tmp           |   Bin [31m0[m -> [32m17340[m bytes
+ .../images/svg/crypto-icons/doge.svg.tmp           |   Bin [31m0[m -> [32m17650[m bytes
+ .../images/svg/crypto-icons/dot.svg.tmp            |   Bin [31m0[m -> [32m17805[m bytes
+ .../images/svg/crypto-icons/drgn.svg.tmp           |   Bin [31m0[m -> [32m17231[m bytes
+ .../images/svg/crypto-icons/drop.svg.tmp           |   Bin [31m0[m -> [32m18977[m bytes
+ .../images/svg/crypto-icons/dta.svg.tmp            |   Bin [31m0[m -> [32m17584[m bytes
+ .../images/svg/crypto-icons/dth.svg.tmp            |   Bin [31m0[m -> [32m18733[m bytes
+ .../images/svg/crypto-icons/dtr.svg.tmp            |   Bin [31m0[m -> [32m17586[m bytes
+ .../images/svg/crypto-icons/ebst.svg.tmp           |   Bin [31m0[m -> [32m17984[m bytes
+ .../images/svg/crypto-icons/eca.svg.tmp            |   Bin [31m0[m -> [32m18893[m bytes
+ .../images/svg/crypto-icons/edg.svg.tmp            |   Bin [31m0[m -> [32m19008[m bytes
+ .../images/svg/crypto-icons/edo.svg.tmp            |   Bin [31m0[m -> [32m17525[m bytes
+ .../images/svg/crypto-icons/edoge.svg.tmp          |   Bin [31m0[m -> [32m18038[m bytes
+ .../images/svg/crypto-icons/ela.svg.tmp            |   Bin [31m0[m -> [32m17649[m bytes
+ .../images/svg/crypto-icons/elec.svg.tmp           |   Bin [31m0[m -> [32m17208[m bytes
+ .../images/svg/crypto-icons/elf.svg.tmp            |   Bin [31m0[m -> [32m18229[m bytes
+ .../images/svg/crypto-icons/elix.svg.tmp           |   Bin [31m0[m -> [32m17568[m bytes
+ .../images/svg/crypto-icons/ella.svg.tmp           |   Bin [31m0[m -> [32m17381[m bytes
+ .../images/svg/crypto-icons/emb.svg.tmp            |   Bin [31m0[m -> [32m17388[m bytes
+ .../images/svg/crypto-icons/emc.svg.tmp            |   Bin [31m0[m -> [32m17138[m bytes
+ .../images/svg/crypto-icons/emc2.svg.tmp           |   Bin [31m0[m -> [32m17555[m bytes
+ .../images/svg/crypto-icons/eng.svg.tmp            |   Bin [31m0[m -> [32m19909[m bytes
+ .../images/svg/crypto-icons/enj.svg.tmp            |   Bin [31m0[m -> [32m17878[m bytes
+ .../images/svg/crypto-icons/entrp.svg.tmp          |   Bin [31m0[m -> [32m18600[m bytes
+ .../images/svg/crypto-icons/eon.svg.tmp            |   Bin [31m0[m -> [32m18183[m bytes
+ .../images/svg/crypto-icons/eop.svg.tmp            |   Bin [31m0[m -> [32m17215[m bytes
+ .../images/svg/crypto-icons/eos.svg.tmp            |   Bin [31m0[m -> [32m17322[m bytes
+ .../images/svg/crypto-icons/eqli.svg.tmp           |   Bin [31m0[m -> [32m17959[m bytes
+ .../images/svg/crypto-icons/equa.svg.tmp           |   Bin [31m0[m -> [32m17592[m bytes
+ .../images/svg/crypto-icons/etc.svg.tmp            |   Bin [31m0[m -> [32m17648[m bytes
+ .../images/svg/crypto-icons/eth.svg.tmp            |   Bin [31m0[m -> [32m17437[m bytes
+ .../images/svg/crypto-icons/ethos.svg.tmp          |   Bin [31m0[m -> [32m18260[m bytes
+ .../images/svg/crypto-icons/etn.svg.tmp            |   Bin [31m0[m -> [32m18013[m bytes
+ .../images/svg/crypto-icons/etp.svg.tmp            |   Bin [31m0[m -> [32m19342[m bytes
+ .../images/svg/crypto-icons/eur.svg.tmp            |   Bin [31m0[m -> [32m17560[m bytes
+ .../images/svg/crypto-icons/evx.svg.tmp            |   Bin [31m0[m -> [32m17813[m bytes
+ .../images/svg/crypto-icons/exmo.svg.tmp           |   Bin [31m0[m -> [32m17521[m bytes
+ .../images/svg/crypto-icons/exp.svg.tmp            |   Bin [31m0[m -> [32m19707[m bytes
+ .../images/svg/crypto-icons/fair.svg.tmp           |   Bin [31m0[m -> [32m18748[m bytes
+ .../images/svg/crypto-icons/fct.svg.tmp            |   Bin [31m0[m -> [32m23293[m bytes
+ .../images/svg/crypto-icons/fil.svg.tmp            |   Bin [31m0[m -> [32m17906[m bytes
+ .../images/svg/crypto-icons/fjc.svg.tmp            |   Bin [31m0[m -> [32m19767[m bytes
+ .../images/svg/crypto-icons/fldc.svg.tmp           |   Bin [31m0[m -> [32m22053[m bytes
+ .../images/svg/crypto-icons/flo.svg.tmp            |   Bin [31m0[m -> [32m18181[m bytes
+ .../images/svg/crypto-icons/flux.svg.tmp           |   Bin [31m0[m -> [32m17440[m bytes
+ .../images/svg/crypto-icons/fsn.svg.tmp            |   Bin [31m0[m -> [32m17720[m bytes
+ .../images/svg/crypto-icons/ftc.svg.tmp            |   Bin [31m0[m -> [32m17763[m bytes
+ .../images/svg/crypto-icons/fuel.svg.tmp           |   Bin [31m0[m -> [32m17433[m bytes
+ .../images/svg/crypto-icons/fun.svg.tmp            |   Bin [31m0[m -> [32m18520[m bytes
+ .../images/svg/crypto-icons/game.svg.tmp           |   Bin [31m0[m -> [32m17432[m bytes
+ .../images/svg/crypto-icons/gas.svg.tmp            |   Bin [31m0[m -> [32m17337[m bytes
+ .../images/svg/crypto-icons/gbp.svg.tmp            |   Bin [31m0[m -> [32m17324[m bytes
+ .../images/svg/crypto-icons/gbx.svg.tmp            |   Bin [31m0[m -> [32m17436[m bytes
+ .../images/svg/crypto-icons/gbyte.svg.tmp          |   Bin [31m0[m -> [32m17128[m bytes
+ .../images/svg/crypto-icons/generic.svg.tmp        |   Bin [31m0[m -> [32m17556[m bytes
+ .../images/svg/crypto-icons/gin.svg.tmp            |   Bin [31m0[m -> [32m18241[m bytes
+ .../images/svg/crypto-icons/glxt.svg.tmp           |   Bin [31m0[m -> [32m18639[m bytes
+ .../images/svg/crypto-icons/gmr.svg.tmp            |   Bin [31m0[m -> [32m23901[m bytes
+ .../images/svg/crypto-icons/gno.svg.tmp            |   Bin [31m0[m -> [32m17906[m bytes
+ .../images/svg/crypto-icons/gnt.svg.tmp            |   Bin [31m0[m -> [32m18060[m bytes
+ .../images/svg/crypto-icons/gold.svg.tmp           |   Bin [31m0[m -> [32m17292[m bytes
+ .../images/svg/crypto-icons/grc.svg.tmp            |   Bin [31m0[m -> [32m19358[m bytes
+ .../images/svg/crypto-icons/grin.svg.tmp           |   Bin [31m0[m -> [32m17986[m bytes
+ .../images/svg/crypto-icons/grs.svg.tmp            |   Bin [31m0[m -> [32m19622[m bytes
+ .../images/svg/crypto-icons/grt.svg.tmp            |   Bin [31m0[m -> [32m17529[m bytes
+ .../images/svg/crypto-icons/gsc.svg.tmp            |   Bin [31m0[m -> [32m17475[m bytes
+ .../images/svg/crypto-icons/gto.svg.tmp            |   Bin [31m0[m -> [32m17913[m bytes
+ .../images/svg/crypto-icons/gup.svg.tmp            |   Bin [31m0[m -> [32m17383[m bytes
+ .../images/svg/crypto-icons/gusd.svg.tmp           |   Bin [31m0[m -> [32m17571[m bytes
+ .../images/svg/crypto-icons/gvt.svg.tmp            |   Bin [31m0[m -> [32m17478[m bytes
+ .../images/svg/crypto-icons/gxs.svg.tmp            |   Bin [31m0[m -> [32m18380[m bytes
+ .../images/svg/crypto-icons/gzr.svg.tmp            |   Bin [31m0[m -> [32m20467[m bytes
+ .../images/svg/crypto-icons/hight.svg.tmp          |   Bin [31m0[m -> [32m17287[m bytes
+ .../images/svg/crypto-icons/hns.svg.tmp            |   Bin [31m0[m -> [32m18376[m bytes
+ .../images/svg/crypto-icons/hodl.svg.tmp           |   Bin [31m0[m -> [32m18083[m bytes
+ .../images/svg/crypto-icons/hot.svg.tmp            |   Bin [31m0[m -> [32m19780[m bytes
+ .../images/svg/crypto-icons/hpb.svg.tmp            |   Bin [31m0[m -> [32m18600[m bytes
+ .../images/svg/crypto-icons/hsr.svg.tmp            |   Bin [31m0[m -> [32m17979[m bytes
+ .../images/svg/crypto-icons/ht.svg.tmp             |   Bin [31m0[m -> [32m17478[m bytes
+ .../images/svg/crypto-icons/html.svg.tmp           |   Bin [31m0[m -> [32m17419[m bytes
+ .../images/svg/crypto-icons/huc.svg.tmp            |   Bin [31m0[m -> [32m17130[m bytes
+ .../images/svg/crypto-icons/husd.svg.tmp           |   Bin [31m0[m -> [32m17438[m bytes
+ .../images/svg/crypto-icons/hush.svg.tmp           |   Bin [31m0[m -> [32m18971[m bytes
+ .../images/svg/crypto-icons/icn.svg.tmp            |   Bin [31m0[m -> [32m17224[m bytes
+ .../images/svg/crypto-icons/icp.svg.tmp            |   Bin [31m0[m -> [32m18244[m bytes
+ .../images/svg/crypto-icons/icx.svg.tmp            |   Bin [31m0[m -> [32m17300[m bytes
+ .../images/svg/crypto-icons/ignis.svg.tmp          |   Bin [31m0[m -> [32m17483[m bytes
+ .../images/svg/crypto-icons/ilk.svg.tmp            |   Bin [31m0[m -> [32m17669[m bytes
+ .../images/svg/crypto-icons/ink.svg.tmp            |   Bin [31m0[m -> [32m18246[m bytes
+ .../images/svg/crypto-icons/ins.svg.tmp            |   Bin [31m0[m -> [32m22481[m bytes
+ .../images/svg/crypto-icons/ion.svg.tmp            |   Bin [31m0[m -> [32m18028[m bytes
+ .../images/svg/crypto-icons/iop.svg.tmp            |   Bin [31m0[m -> [32m18132[m bytes
+ .../images/svg/crypto-icons/iost.svg.tmp           |   Bin [31m0[m -> [32m17437[m bytes
+ .../images/svg/crypto-icons/iotx.svg.tmp           |   Bin [31m0[m -> [32m18375[m bytes
+ .../images/svg/crypto-icons/iq.svg.tmp             |   Bin [31m0[m -> [32m18088[m bytes
+ .../images/svg/crypto-icons/itc.svg.tmp            |   Bin [31m0[m -> [32m18534[m bytes
+ .../images/svg/crypto-icons/jnt.svg.tmp            |   Bin [31m0[m -> [32m17683[m bytes
+ .../images/svg/crypto-icons/jpy.svg.tmp            |   Bin [31m0[m -> [32m17257[m bytes
+ .../images/svg/crypto-icons/kcs.svg.tmp            |   Bin [31m0[m -> [32m17594[m bytes
+ .../images/svg/crypto-icons/kin.svg.tmp            |   Bin [31m0[m -> [32m21576[m bytes
+ .../images/svg/crypto-icons/klown.svg.tmp          |   Bin [31m0[m -> [32m26846[m bytes
+ .../images/svg/crypto-icons/kmd.svg.tmp            |   Bin [31m0[m -> [32m17812[m bytes
+ .../images/svg/crypto-icons/knc.svg.tmp            |   Bin [31m0[m -> [32m17555[m bytes
+ .../images/svg/crypto-icons/krb.svg.tmp            |   Bin [31m0[m -> [32m17490[m bytes
+ .../images/svg/crypto-icons/ksm.svg.tmp            |   Bin [31m0[m -> [32m17747[m bytes
+ .../images/svg/crypto-icons/lbc.svg.tmp            |   Bin [31m0[m -> [32m17347[m bytes
+ .../images/svg/crypto-icons/lend.svg.tmp           |   Bin [31m0[m -> [32m17277[m bytes
+ .../images/svg/crypto-icons/leo.svg.tmp            |   Bin [31m0[m -> [32m19987[m bytes
+ .../images/svg/crypto-icons/link.svg.tmp           |   Bin [31m0[m -> [32m17292[m bytes
+ .../images/svg/crypto-icons/lkk.svg.tmp            |   Bin [31m0[m -> [32m17255[m bytes
+ .../images/svg/crypto-icons/loom.svg.tmp           |   Bin [31m0[m -> [32m17782[m bytes
+ .../images/svg/crypto-icons/lpt.svg.tmp            |   Bin [31m0[m -> [32m17297[m bytes
+ .../images/svg/crypto-icons/lrc.svg.tmp            |   Bin [31m0[m -> [32m17176[m bytes
+ .../images/svg/crypto-icons/lsk.svg.tmp            |   Bin [31m0[m -> [32m17618[m bytes
+ .../images/svg/crypto-icons/ltc.svg.tmp            |   Bin [31m0[m -> [32m17243[m bytes
+ .../images/svg/crypto-icons/lun.svg.tmp            |   Bin [31m0[m -> [32m18134[m bytes
+ .../images/svg/crypto-icons/maid.svg.tmp           |   Bin [31m0[m -> [32m17466[m bytes
+ .../images/svg/crypto-icons/mana.svg.tmp           |   Bin [31m0[m -> [32m17829[m bytes
+ .../images/svg/crypto-icons/matic.svg.tmp          |   Bin [31m0[m -> [32m17928[m bytes
+ .../images/svg/crypto-icons/max.svg.tmp            |   Bin [31m0[m -> [32m17831[m bytes
+ .../images/svg/crypto-icons/mcap.svg.tmp           |   Bin [31m0[m -> [32m18054[m bytes
+ .../images/svg/crypto-icons/mco.svg.tmp            |   Bin [31m0[m -> [32m17605[m bytes
+ .../images/svg/crypto-icons/mda.svg.tmp            |   Bin [31m0[m -> [32m17711[m bytes
+ .../images/svg/crypto-icons/mds.svg.tmp            |   Bin [31m0[m -> [32m18244[m bytes
+ .../images/svg/crypto-icons/med.svg.tmp            |   Bin [31m0[m -> [32m17382[m bytes
+ .../images/svg/crypto-icons/meetone.svg.tmp        |   Bin [31m0[m -> [32m18092[m bytes
+ .../images/svg/crypto-icons/mft.svg.tmp            |   Bin [31m0[m -> [32m17562[m bytes
+ .../images/svg/crypto-icons/miota.svg.tmp          |   Bin [31m0[m -> [32m21465[m bytes
+ .../images/svg/crypto-icons/mith.svg.tmp           |   Bin [31m0[m -> [32m20275[m bytes
+ .../images/svg/crypto-icons/mkr.svg.tmp            |   Bin [31m0[m -> [32m17332[m bytes
+ .../images/svg/crypto-icons/mln.svg.tmp            |   Bin [31m0[m -> [32m17681[m bytes
+ .../images/svg/crypto-icons/mnx.svg.tmp            |   Bin [31m0[m -> [32m17391[m bytes
+ .../images/svg/crypto-icons/mnz.svg.tmp            |   Bin [31m0[m -> [32m18158[m bytes
+ .../images/svg/crypto-icons/moac.svg.tmp           |   Bin [31m0[m -> [32m17225[m bytes
+ .../images/svg/crypto-icons/mod.svg.tmp            |   Bin [31m0[m -> [32m17191[m bytes
+ .../images/svg/crypto-icons/mona.svg.tmp           |   Bin [31m0[m -> [32m17516[m bytes
+ .../images/svg/crypto-icons/msr.svg.tmp            |   Bin [31m0[m -> [32m17687[m bytes
+ .../images/svg/crypto-icons/mth.svg.tmp            |   Bin [31m0[m -> [32m17527[m bytes
+ .../images/svg/crypto-icons/mtl.svg.tmp            |   Bin [31m0[m -> [32m17127[m bytes
+ .../images/svg/crypto-icons/music.svg.tmp          |   Bin [31m0[m -> [32m17425[m bytes
+ .../images/svg/crypto-icons/mzc.svg.tmp            |   Bin [31m0[m -> [32m17687[m bytes
+ .../images/svg/crypto-icons/nano.svg.tmp           |   Bin [31m0[m -> [32m17898[m bytes
+ .../images/svg/crypto-icons/nas.svg.tmp            |   Bin [31m0[m -> [32m18149[m bytes
+ .../images/svg/crypto-icons/nav.svg.tmp            |   Bin [31m0[m -> [32m17178[m bytes
+ .../images/svg/crypto-icons/ncash.svg.tmp          |   Bin [31m0[m -> [32m23232[m bytes
+ .../images/svg/crypto-icons/ndz.svg.tmp            |   Bin [31m0[m -> [32m18110[m bytes
+ .../images/svg/crypto-icons/nebl.svg.tmp           |   Bin [31m0[m -> [32m18024[m bytes
+ .../images/svg/crypto-icons/neo.svg.tmp            |   Bin [31m0[m -> [32m17337[m bytes
+ .../images/svg/crypto-icons/neos.svg.tmp           |   Bin [31m0[m -> [32m17188[m bytes
+ .../images/svg/crypto-icons/neu.svg.tmp            |   Bin [31m0[m -> [32m17388[m bytes
+ .../images/svg/crypto-icons/nexo.svg.tmp           |   Bin [31m0[m -> [32m17569[m bytes
+ .../images/svg/crypto-icons/ngc.svg.tmp            |   Bin [31m0[m -> [32m17594[m bytes
+ .../images/svg/crypto-icons/nio.svg.tmp            |   Bin [31m0[m -> [32m17236[m bytes
+ .../images/svg/crypto-icons/nkn.svg.tmp            |   Bin [31m0[m -> [32m18209[m bytes
+ .../images/svg/crypto-icons/nlc2.svg.tmp           |   Bin [31m0[m -> [32m17544[m bytes
+ .../images/svg/crypto-icons/nlg.svg.tmp            |   Bin [31m0[m -> [32m17677[m bytes
+ .../images/svg/crypto-icons/nmc.svg.tmp            |   Bin [31m0[m -> [32m17426[m bytes
+ .../images/svg/crypto-icons/nmr.svg.tmp            |   Bin [31m0[m -> [32m26109[m bytes
+ .../images/svg/crypto-icons/npxs.svg.tmp           |   Bin [31m0[m -> [32m17601[m bytes
+ .../images/svg/crypto-icons/ntbc.svg.tmp           |   Bin [31m0[m -> [32m17663[m bytes
+ .../images/svg/crypto-icons/nuls.svg.tmp           |   Bin [31m0[m -> [32m17381[m bytes
+ .../images/svg/crypto-icons/nxs.svg.tmp            |   Bin [31m0[m -> [32m17560[m bytes
+ .../images/svg/crypto-icons/nxt.svg.tmp            |   Bin [31m0[m -> [32m17781[m bytes
+ .../images/svg/crypto-icons/oax.svg.tmp            |   Bin [31m0[m -> [32m17772[m bytes
+ .../images/svg/crypto-icons/ok.svg.tmp             |   Bin [31m0[m -> [32m19005[m bytes
+ .../images/svg/crypto-icons/omg.svg.tmp            |   Bin [31m0[m -> [32m17752[m bytes
+ .../images/svg/crypto-icons/omni.svg.tmp           |   Bin [31m0[m -> [32m17508[m bytes
+ .../images/svg/crypto-icons/one.svg.tmp            |   Bin [31m0[m -> [32m18054[m bytes
+ .../images/svg/crypto-icons/ong.svg.tmp            |   Bin [31m0[m -> [32m17460[m bytes
+ .../images/svg/crypto-icons/ont.svg.tmp            |   Bin [31m0[m -> [32m17278[m bytes
+ .../images/svg/crypto-icons/oot.svg.tmp            |   Bin [31m0[m -> [32m18667[m bytes
+ .../images/svg/crypto-icons/ost.svg.tmp            |   Bin [31m0[m -> [32m17912[m bytes
+ .../images/svg/crypto-icons/ox.svg.tmp             |   Bin [31m0[m -> [32m17637[m bytes
+ .../images/svg/crypto-icons/oxt.svg.tmp            |   Bin [31m0[m -> [32m17616[m bytes
+ .../images/svg/crypto-icons/part.svg.tmp           |   Bin [31m0[m -> [32m18262[m bytes
+ .../images/svg/crypto-icons/pasc.svg.tmp           |   Bin [31m0[m -> [32m17673[m bytes
+ .../images/svg/crypto-icons/pasl.svg.tmp           |   Bin [31m0[m -> [32m17587[m bytes
+ .../images/svg/crypto-icons/pax.svg.tmp            |   Bin [31m0[m -> [32m17595[m bytes
+ .../images/svg/crypto-icons/paxg.svg.tmp           |   Bin [31m0[m -> [32m17595[m bytes
+ .../images/svg/crypto-icons/pay.svg.tmp            |   Bin [31m0[m -> [32m17583[m bytes
+ .../images/svg/crypto-icons/payx.svg.tmp           |   Bin [31m0[m -> [32m17508[m bytes
+ .../images/svg/crypto-icons/pink.svg.tmp           |   Bin [31m0[m -> [32m17669[m bytes
+ .../images/svg/crypto-icons/pirl.svg.tmp           |   Bin [31m0[m -> [32m18009[m bytes
+ .../images/svg/crypto-icons/pivx.svg.tmp           |   Bin [31m0[m -> [32m17346[m bytes
+ .../images/svg/crypto-icons/plr.svg.tmp            |   Bin [31m0[m -> [32m17632[m bytes
+ .../images/svg/crypto-icons/poa.svg.tmp            |   Bin [31m0[m -> [32m17654[m bytes
+ .../images/svg/crypto-icons/poe.svg.tmp            |   Bin [31m0[m -> [32m17869[m bytes
+ .../images/svg/crypto-icons/polis.svg.tmp          |   Bin [31m0[m -> [32m17805[m bytes
+ .../images/svg/crypto-icons/poly.svg.tmp           |   Bin [31m0[m -> [32m17584[m bytes
+ .../images/svg/crypto-icons/pot.svg.tmp            |   Bin [31m0[m -> [32m17944[m bytes
+ .../images/svg/crypto-icons/powr.svg.tmp           |   Bin [31m0[m -> [32m21123[m bytes
+ .../images/svg/crypto-icons/ppc.svg.tmp            |   Bin [31m0[m -> [32m17296[m bytes
+ .../images/svg/crypto-icons/ppp.svg.tmp            |   Bin [31m0[m -> [32m17888[m bytes
+ .../images/svg/crypto-icons/ppt.svg.tmp            |   Bin [31m0[m -> [32m17428[m bytes
+ .../images/svg/crypto-icons/pre.svg.tmp            |   Bin [31m0[m -> [32m17821[m bytes
+ .../images/svg/crypto-icons/prl.svg.tmp            |   Bin [31m0[m -> [32m21454[m bytes
+ .../images/svg/crypto-icons/pungo.svg.tmp          |   Bin [31m0[m -> [32m19327[m bytes
+ .../images/svg/crypto-icons/pura.svg.tmp           |   Bin [31m0[m -> [32m17625[m bytes
+ .../images/svg/crypto-icons/qash.svg.tmp           |   Bin [31m0[m -> [32m19872[m bytes
+ .../images/svg/crypto-icons/qiwi.svg.tmp           |   Bin [31m0[m -> [32m17933[m bytes
+ .../images/svg/crypto-icons/qlc.svg.tmp            |   Bin [31m0[m -> [32m18706[m bytes
+ .../images/svg/crypto-icons/qrl.svg.tmp            |   Bin [31m0[m -> [32m20403[m bytes
+ .../images/svg/crypto-icons/qsp.svg.tmp            |   Bin [31m0[m -> [32m17607[m bytes
+ .../images/svg/crypto-icons/qtum.svg.tmp           |   Bin [31m0[m -> [32m20698[m bytes
+ .../admin-assets/images/svg/crypto-icons/r.svg.tmp |   Bin [31m0[m -> [32m17220[m bytes
+ .../images/svg/crypto-icons/rads.svg.tmp           |   Bin [31m0[m -> [32m17587[m bytes
+ .../images/svg/crypto-icons/rap.svg.tmp            |   Bin [31m0[m -> [32m17308[m bytes
+ .../images/svg/crypto-icons/rcn.svg.tmp            |   Bin [31m0[m -> [32m18951[m bytes
+ .../images/svg/crypto-icons/rdd.svg.tmp            |   Bin [31m0[m -> [32m17562[m bytes
+ .../images/svg/crypto-icons/rdn.svg.tmp            |   Bin [31m0[m -> [32m17460[m bytes
+ .../images/svg/crypto-icons/ren.svg.tmp            |   Bin [31m0[m -> [32m18239[m bytes
+ .../images/svg/crypto-icons/rep.svg.tmp            |   Bin [31m0[m -> [32m20022[m bytes
+ .../images/svg/crypto-icons/repv2.svg.tmp          |   Bin [31m0[m -> [32m17710[m bytes
+ .../images/svg/crypto-icons/req.svg.tmp            |   Bin [31m0[m -> [32m17418[m bytes
+ .../images/svg/crypto-icons/rhoc.svg.tmp           |   Bin [31m0[m -> [32m18150[m bytes
+ .../images/svg/crypto-icons/ric.svg.tmp            |   Bin [31m0[m -> [32m17831[m bytes
+ .../images/svg/crypto-icons/rise.svg.tmp           |   Bin [31m0[m -> [32m17710[m bytes
+ .../images/svg/crypto-icons/rlc.svg.tmp            |   Bin [31m0[m -> [32m18421[m bytes
+ .../images/svg/crypto-icons/rpx.svg.tmp            |   Bin [31m0[m -> [32m17620[m bytes
+ .../images/svg/crypto-icons/rub.svg.tmp            |   Bin [31m0[m -> [32m17523[m bytes
+ .../images/svg/crypto-icons/rvn.svg.tmp            |   Bin [31m0[m -> [32m17767[m bytes
+ .../images/svg/crypto-icons/ryo.svg.tmp            |   Bin [31m0[m -> [32m17430[m bytes
+ .../images/svg/crypto-icons/safe.svg.tmp           |   Bin [31m0[m -> [32m18517[m bytes
+ .../images/svg/crypto-icons/safemoon.svg.tmp       |   Bin [31m0[m -> [32m18747[m bytes
+ .../images/svg/crypto-icons/sai.svg.tmp            |   Bin [31m0[m -> [32m17313[m bytes
+ .../images/svg/crypto-icons/salt.svg.tmp           |   Bin [31m0[m -> [32m17136[m bytes
+ .../images/svg/crypto-icons/san.svg.tmp            |   Bin [31m0[m -> [32m18125[m bytes
+ .../images/svg/crypto-icons/sand.svg.tmp           |   Bin [31m0[m -> [32m17229[m bytes
+ .../images/svg/crypto-icons/sbd.svg.tmp            |   Bin [31m0[m -> [32m17713[m bytes
+ .../images/svg/crypto-icons/sberbank.svg.tmp       |   Bin [31m0[m -> [32m17673[m bytes
+ .../images/svg/crypto-icons/sc.svg.tmp             |   Bin [31m0[m -> [32m17280[m bytes
+ .../images/svg/crypto-icons/shift.svg.tmp          |   Bin [31m0[m -> [32m17414[m bytes
+ .../images/svg/crypto-icons/sib.svg.tmp            |   Bin [31m0[m -> [32m17439[m bytes
+ .../images/svg/crypto-icons/sin.svg.tmp            |   Bin [31m0[m -> [32m18552[m bytes
+ .../images/svg/crypto-icons/skl.svg.tmp            |   Bin [31m0[m -> [32m17628[m bytes
+ .../images/svg/crypto-icons/sky.svg.tmp            |   Bin [31m0[m -> [32m17677[m bytes
+ .../images/svg/crypto-icons/slr.svg.tmp            |   Bin [31m0[m -> [32m17847[m bytes
+ .../images/svg/crypto-icons/sls.svg.tmp            |   Bin [31m0[m -> [32m18802[m bytes
+ .../images/svg/crypto-icons/smart.svg.tmp          |   Bin [31m0[m -> [32m19969[m bytes
+ .../images/svg/crypto-icons/sngls.svg.tmp          |   Bin [31m0[m -> [32m17690[m bytes
+ .../images/svg/crypto-icons/snm.svg.tmp            |   Bin [31m0[m -> [32m20882[m bytes
+ .../images/svg/crypto-icons/sol.svg.tmp            |   Bin [31m0[m -> [32m17501[m bytes
+ .../images/svg/crypto-icons/usdt.svg.tmp           |   Bin [31m0[m -> [32m17560[m bytes
+ .../images/svg/crypto-icons/vtc.svg.tmp            |   Bin [31m0[m -> [32m17331[m bytes
+ .../images/svg/crypto-icons/xmr.svg.tmp            |   Bin [31m0[m -> [32m17431[m bytes
+ .../images/svg/crypto-icons/xpm.svg.tmp            |   Bin [31m0[m -> [32m17333[m bytes
+ .../images/svg/crypto-icons/xrp.svg.tmp            |   Bin [31m0[m -> [32m17311[m bytes
+ .../images/svg/crypto-icons/xsg.svg.tmp            |   Bin [31m0[m -> [32m18029[m bytes
+ .../images/svg/crypto-icons/yfi.svg.tmp            |   Bin [31m0[m -> [32m17843[m bytes
+ .../images/sweetalert2/email-verify.png            |   Bin [31m0[m -> [32m5719[m bytes
+ .../images/sweetalert2/email-verify.png.tmp        |   Bin [31m0[m -> [32m16912[m bytes
+ .../images/sweetalert2/error-message.png           |   Bin [31m0[m -> [32m4928[m bytes
+ .../images/sweetalert2/join-community.png          |   Bin [31m0[m -> [32m5153[m bytes
+ .../images/sweetalert2/notification-message.png    |   Bin [31m0[m -> [32m5255[m bytes
+ .../images/sweetalert2/success-message.png         |   Bin [31m0[m -> [32m4958[m bytes
+ .../images/sweetalert2/success-message.png.tmp     |   Bin [31m0[m -> [32m16912[m bytes
+ .../images/sweetalert2/warning-message.png         |   Bin [31m0[m -> [32m4879[m bytes
+ public/admin-assets/images/task.png                |   Bin [31m0[m -> [32m17790[m bytes
+ public/admin-assets/images/user-illustarator-1.png |   Bin [31m0[m -> [32m93093[m bytes
+ public/admin-assets/images/user-illustarator-2.png |   Bin [31m0[m -> [32m166738[m bytes
+ public/admin-assets/images/users/avatar-1.jpg      |   Bin [31m0[m -> [32m9022[m bytes
+ public/admin-assets/images/users/avatar-10.jpg     |   Bin [31m0[m -> [32m12918[m bytes
+ public/admin-assets/images/users/avatar-2.jpg      |   Bin [31m0[m -> [32m17336[m bytes
+ public/admin-assets/images/users/avatar-3.jpg      |   Bin [31m0[m -> [32m11267[m bytes
+ public/admin-assets/images/users/avatar-4.jpg      |   Bin [31m0[m -> [32m53533[m bytes
+ public/admin-assets/images/users/avatar-5.jpg      |   Bin [31m0[m -> [32m11561[m bytes
+ public/admin-assets/images/users/avatar-6.jpg      |   Bin [31m0[m -> [32m11948[m bytes
+ public/admin-assets/images/users/avatar-7.jpg      |   Bin [31m0[m -> [32m29943[m bytes
+ public/admin-assets/images/users/avatar-8.jpg      |   Bin [31m0[m -> [32m9460[m bytes
+ public/admin-assets/images/users/avatar-9.jpg      |   Bin [31m0[m -> [32m11203[m bytes
+ public/admin-assets/images/users/multi-user.jpg    |   Bin [31m0[m -> [32m3166[m bytes
+ .../admin-assets/images/users/multi-user.jpg.tmp   |   Bin [31m0[m -> [32m16912[m bytes
+ .../admin-assets/images/users/user-dummy-img.jpg   |   Bin [31m0[m -> [32m3477[m bytes
+ .../images/users/user-dummy-img.jpg.tmp            |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/images/verification-img.png    |   Bin [31m0[m -> [32m66543[m bytes
+ public/admin-assets/js/app.js                      |     1 [32m+[m
+ public/admin-assets/js/customc-keditor.js          |   284 [32m+[m
+ public/admin-assets/js/layout.js                   |     1 [32m+[m
+ public/admin-assets/js/maps/us-merc-en.js          |     1 [32m+[m
+ public/admin-assets/js/pages/animation-aos.init.js |     1 [32m+[m
+ .../admin-assets/js/pages/apexcharts-area.init.js  |     1 [32m+[m
+ .../admin-assets/js/pages/apexcharts-bar.init.js   |     1 [32m+[m
+ .../js/pages/apexcharts-boxplot.init.js            |     1 [32m+[m
+ .../js/pages/apexcharts-boxplot.init.js.tmp        |   Bin [31m0[m -> [32m16912[m bytes
+ .../js/pages/apexcharts-bubble.init.js             |     1 [32m+[m
+ .../js/pages/apexcharts-bubble.init.js.tmp         |   Bin [31m0[m -> [32m16912[m bytes
+ .../js/pages/apexcharts-candlestick.init.js        |     1 [32m+[m
+ .../js/pages/apexcharts-column.init.js             |     1 [32m+[m
+ .../js/pages/apexcharts-funnel.init.js             |     1 [32m+[m
+ .../js/pages/apexcharts-funnel.init.js.tmp         |   Bin [31m0[m -> [32m16912[m bytes
+ .../js/pages/apexcharts-heatmap.init.js            |     1 [32m+[m
+ .../js/pages/apexcharts-heatmap.init.js.tmp        |   Bin [31m0[m -> [32m16912[m bytes
+ .../admin-assets/js/pages/apexcharts-line.init.js  |     1 [32m+[m
+ .../admin-assets/js/pages/apexcharts-mixed.init.js |     1 [32m+[m
+ .../js/pages/apexcharts-mixed.init.js.tmp          |   Bin [31m0[m -> [32m16912[m bytes
+ .../admin-assets/js/pages/apexcharts-pie.init.js   |     1 [32m+[m
+ .../js/pages/apexcharts-pie.init.js.tmp            |   Bin [31m0[m -> [32m16912[m bytes
+ .../js/pages/apexcharts-polararea.init.js          |     1 [32m+[m
+ .../js/pages/apexcharts-polararea.init.js.tmp      |   Bin [31m0[m -> [32m16912[m bytes
+ .../admin-assets/js/pages/apexcharts-radar.init.js |     1 [32m+[m
+ .../js/pages/apexcharts-radar.init.js.tmp          |   Bin [31m0[m -> [32m16912[m bytes
+ .../js/pages/apexcharts-radialbar.init.js          |     1 [32m+[m
+ .../js/pages/apexcharts-radialbar.init.js.tmp      |   Bin [31m0[m -> [32m16912[m bytes
+ .../js/pages/apexcharts-range-area.init.js         |     1 [32m+[m
+ .../js/pages/apexcharts-scatter.init.js            |     1 [32m+[m
+ .../js/pages/apexcharts-scatter.init.js.tmp        |   Bin [31m0[m -> [32m16912[m bytes
+ .../admin-assets/js/pages/apexcharts-slope.init.js |     1 [32m+[m
+ .../js/pages/apexcharts-slope.init.js.tmp          |   Bin [31m0[m -> [32m16912[m bytes
+ .../js/pages/apexcharts-timeline.init.js           |     1 [32m+[m
+ .../js/pages/apexcharts-treemap.init.js            |     1 [32m+[m
+ .../js/pages/apexcharts-treemap.init.js.tmp        |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/api-key.init.js       |     1 [32m+[m
+ .../admin-assets/js/pages/apps-nft-auction.init.js |     1 [32m+[m
+ .../js/pages/apps-nft-auction.init.js.tmp          |   Bin [31m0[m -> [32m16912[m bytes
+ .../admin-assets/js/pages/apps-nft-create.init.js  |     1 [32m+[m
+ .../js/pages/apps-nft-create.init.js.tmp           |   Bin [31m0[m -> [32m16912[m bytes
+ .../admin-assets/js/pages/apps-nft-explore.init.js |     1 [32m+[m
+ .../js/pages/apps-nft-item-details.init.js         |     1 [32m+[m
+ .../js/pages/apps-nft-item-details.init.js.tmp     |   Bin [31m0[m -> [32m16912[m bytes
+ .../admin-assets/js/pages/apps-nft-ranking.init.js |     1 [32m+[m
+ .../js/pages/apps-nft-ranking.init.js.tmp          |   Bin [31m0[m -> [32m16912[m bytes
+ .../js/pages/calendar-month-grid.init.js           |     1 [32m+[m
+ public/admin-assets/js/pages/calendar.init.js      |     1 [32m+[m
+ public/admin-assets/js/pages/card.init.js          |     1 [32m+[m
+ public/admin-assets/js/pages/chartjs.init.js       |     1 [32m+[m
+ public/admin-assets/js/pages/chartjs.init.js.tmp   |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/chat.init.js          |     1 [32m+[m
+ public/admin-assets/js/pages/coming-soon.init.js   |     1 [32m+[m
+ public/admin-assets/js/pages/crm-companies.init.js |    75 [32m+[m
+ public/admin-assets/js/pages/crm-contact.init.js   |    66 [32m+[m
+ public/admin-assets/js/pages/crm-deals.init.js     |    59 [32m+[m
+ public/admin-assets/js/pages/crm-leads.init.js     |     1 [32m+[m
+ .../admin-assets/js/pages/crypto-buy-sell.init.js  |     1 [32m+[m
+ public/admin-assets/js/pages/crypto-kyc.init.js    |     1 [32m+[m
+ public/admin-assets/js/pages/crypto-orders.init.js |     1 [32m+[m
+ .../js/pages/crypto-transactions.init.js           |     1 [32m+[m
+ public/admin-assets/js/pages/crypto-wallet.init.js |     1 [32m+[m
+ .../js/pages/dashboard-analytics.init.js           |     1 [32m+[m
+ .../admin-assets/js/pages/dashboard-blog.init.js   |     1 [32m+[m
+ .../js/pages/dashboard-blog.init.js.tmp            |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/dashboard-crm.init.js |     1 [32m+[m
+ .../js/pages/dashboard-crm.init.js.tmp             |   Bin [31m0[m -> [32m16912[m bytes
+ .../admin-assets/js/pages/dashboard-crypto.init.js |     1 [32m+[m
+ .../js/pages/dashboard-ecommerce.init.js           |     1 [32m+[m
+ public/admin-assets/js/pages/dashboard-job.init.js |     1 [32m+[m
+ public/admin-assets/js/pages/dashboard-nft.init.js |     1 [32m+[m
+ .../js/pages/dashboard-projects.init.js            |     1 [32m+[m
+ .../js/pages/dashboard-projects.init.js.tmp        |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/datatables.init.js    |     1 [32m+[m
+ public/admin-assets/js/pages/echarts.init.js       |     1 [32m+[m
+ .../admin-assets/js/pages/ecommerce-cart.init.js   |     1 [32m+[m
+ .../js/pages/ecommerce-cart.init.js.tmp            |   Bin [31m0[m -> [32m16912[m bytes
+ .../js/pages/ecommerce-customer-list.init.js       |     1 [32m+[m
+ .../admin-assets/js/pages/ecommerce-order.init.js  |     1 [32m+[m
+ .../js/pages/ecommerce-product-checkout.init.js    |     1 [32m+[m
+ .../js/pages/ecommerce-product-create.init.js      |     1 [32m+[m
+ .../js/pages/ecommerce-product-create.init.js.tmp  |   Bin [31m0[m -> [32m16912[m bytes
+ .../js/pages/ecommerce-product-details.init.js.tmp |   Bin [31m0[m -> [32m16912[m bytes
+ .../js/pages/ecommerce-product-list.init.js.tmp    |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/file-manager.init.js  |     1 [32m+[m
+ public/admin-assets/js/pages/flag-input.init.js    |     1 [32m+[m
+ public/admin-assets/js/pages/form-advanced.init.js |     1 [32m+[m
+ public/admin-assets/js/pages/form-editor.init.js   |     1 [32m+[m
+ .../admin-assets/js/pages/form-editor.init.js.tmp  |   Bin [31m0[m -> [32m16912[m bytes
+ .../admin-assets/js/pages/form-file-upload.init.js |     1 [32m+[m
+ .../admin-assets/js/pages/form-input-spin.init.js  |     1 [32m+[m
+ public/admin-assets/js/pages/form-masks.init.js    |     1 [32m+[m
+ .../admin-assets/js/pages/form-masks.init.js.tmp   |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/form-pickers.init.js  |     1 [32m+[m
+ .../admin-assets/js/pages/form-validation.init.js  |     1 [32m+[m
+ .../js/pages/form-validation.init.js.tmp           |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/form-wizard.init.js   |     1 [32m+[m
+ .../admin-assets/js/pages/form-wizard.init.js.tmp  |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/gallery.init.js       |     1 [32m+[m
+ public/admin-assets/js/pages/gridjs.init.js        |     1 [32m+[m
+ public/admin-assets/js/pages/gridjs.init.js.tmp    |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/invoicecreate.init.js |     1 [32m+[m
+ public/admin-assets/js/pages/invoicedetails.js     |    40 [32m+[m
+ public/admin-assets/js/pages/invoicedetails.js.tmp |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/invoiceslist.init.js  |    41 [32m+[m
+ .../admin-assets/js/pages/job-application.init.js  |     1 [32m+[m
+ .../js/pages/job-candidate-grid.init.js            |     1 [32m+[m
+ .../js/pages/job-candidate-grid.init.js.tmp        |   Bin [31m0[m -> [32m16912[m bytes
+ .../js/pages/job-candidate-lists.init.js           |     1 [32m+[m
+ .../js/pages/job-candidate-lists.init.js.tmp       |   Bin [31m0[m -> [32m16912[m bytes
+ .../js/pages/job-companies-lists.init.js           |     1 [32m+[m
+ public/admin-assets/js/pages/job-grid-list.init.js |     1 [32m+[m
+ public/admin-assets/js/pages/job-lading.init.js    |     1 [32m+[m
+ public/admin-assets/js/pages/job-list.init.js      |     1 [32m+[m
+ .../admin-assets/js/pages/job-statistics.init.js   |     1 [32m+[m
+ public/admin-assets/js/pages/landing.init.js       |     1 [32m+[m
+ public/admin-assets/js/pages/listjs.init.js        |     1 [32m+[m
+ public/admin-assets/js/pages/mailbox.init.js       |     1 [32m+[m
+ .../admin-assets/js/pages/materialdesign.list.js   |     1 [32m+[m
+ public/admin-assets/js/pages/modal.init.js.tmp     |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/nestable.init.js      |     1 [32m+[m
+ public/admin-assets/js/pages/nestable.init.js.tmp  |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/nft-landing.init.js   |     1 [32m+[m
+ .../js/pages/notifications.init.js.tmp             |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/particles.app.js      |     1 [32m+[m
+ .../admin-assets/js/pages/passowrd-create.init.js  |     1 [32m+[m
+ .../js/pages/passowrd-create.init.js.tmp           |   Bin [31m0[m -> [32m16912[m bytes
+ .../admin-assets/js/pages/password-addon.init.js   |     1 [32m+[m
+ .../js/pages/password-addon.init.js.tmp            |   Bin [31m0[m -> [32m16912[m bytes
+ .../js/pages/plugins/lord-icon-2.1.0.js            |     1 [32m+[m
+ public/admin-assets/js/pages/pricing.init.js       |     1 [32m+[m
+ public/admin-assets/js/pages/pricing.init.js.tmp   |   Bin [31m0[m -> [32m16912[m bytes
+ .../admin-assets/js/pages/profile-setting.init.js  |     1 [32m+[m
+ .../js/pages/profile-setting.init.js.tmp           |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/profile.init.js       |     1 [32m+[m
+ .../admin-assets/js/pages/project-create.init.js   |     1 [32m+[m
+ .../js/pages/project-create.init.js.tmp            |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/project-list.init.js  |     1 [32m+[m
+ .../admin-assets/js/pages/project-list.init.js.tmp |   Bin [31m0[m -> [32m16912[m bytes
+ .../admin-assets/js/pages/project-overview.init.js |     1 [32m+[m
+ .../js/pages/project-overview.init.js.tmp          |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/range-sliders.init.js |     1 [32m+[m
+ public/admin-assets/js/pages/rating.init.js        |     1 [32m+[m
+ public/admin-assets/js/pages/rating.init.js.tmp    |   Bin [31m0[m -> [32m16912[m bytes
+ .../admin-assets/js/pages/remix-icons-listing.js   |     1 [32m+[m
+ public/admin-assets/js/pages/search-result.init.js |     1 [32m+[m
+ public/admin-assets/js/pages/select2.init.js       |     1 [32m+[m
+ .../admin-assets/js/pages/seller-details.init.js   |     1 [32m+[m
+ public/admin-assets/js/pages/sellers.init.js       |     1 [32m+[m
+ public/admin-assets/js/pages/sweetalerts.init.js   |     1 [32m+[m
+ public/admin-assets/js/pages/swiper.init.js        |     1 [32m+[m
+ public/admin-assets/js/pages/swiper.init.js.tmp    |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/tasks-kanban.init.js  |     1 [32m+[m
+ .../admin-assets/js/pages/tasks-kanban.init.js.tmp |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/tasks-list.init.js    |     1 [32m+[m
+ public/admin-assets/js/pages/team.init.js          |     1 [32m+[m
+ public/admin-assets/js/pages/ticketdetail.init.js  |     1 [32m+[m
+ .../admin-assets/js/pages/ticketdetail.init.js.tmp |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/ticketlist.init.js    |     1 [32m+[m
+ public/admin-assets/js/pages/timeline.init.js      |     1 [32m+[m
+ public/admin-assets/js/pages/timeline.init.js.tmp  |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/todo.init.js          |     1 [32m+[m
+ public/admin-assets/js/pages/tour.init.js          |     1 [32m+[m
+ .../js/pages/two-step-verification.init.js         |     1 [32m+[m
+ .../js/pages/two-step-verification.init.js.tmp     |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/js/pages/widgets.init.js       |     1 [32m+[m
+ public/admin-assets/js/plugins.js                  |     1 [32m+[m
+ .../ckeditor5-build-classic/build/ckeditor.js      |     7 [32m+[m
+ .../admin-assets/libs/@simonwep/pickr/pickr.min.js |     3 [32m+[m
+ .../@simonwep/pickr/themes/classic.min.css.tmp     |   Bin [31m0[m -> [32m25971[m bytes
+ .../@simonwep/pickr/themes/monolith.min.css.tmp    |   Bin [31m0[m -> [32m26080[m bytes
+ .../libs/@simonwep/pickr/themes/nano.min.css.tmp   |   Bin [31m0[m -> [32m26160[m bytes
+ .../autocomplete.js/autoComplete.min.js            |     1 [32m+[m
+ .../autocomplete.js/css/autoComplete.css.tmp       |   Bin [31m0[m -> [32m20005[m bytes
+ public/admin-assets/libs/aos/aos.css.tmp           |   Bin [31m0[m -> [32m42965[m bytes
+ public/admin-assets/libs/aos/aos.js                |     1 [32m+[m
+ .../admin-assets/libs/apexcharts/apexcharts.min.js |    38 [32m+[m
+ .../libs/bootstrap/js/bootstrap.bundle.min.js      |     7 [32m+[m
+ public/admin-assets/libs/card/card.js              |    17 [32m+[m
+ public/admin-assets/libs/chart.js/chart.umd.js     |    14 [32m+[m
+ public/admin-assets/libs/cleave.js/cleave.min.js   |     8 [32m+[m
+ .../libs/dom-autoscroller/dom-autoscroller.min.js  |     1 [32m+[m
+ .../admin-assets/libs/dragula/dragula.min.css.tmp  |   Bin [31m0[m -> [32m17198[m bytes
+ public/admin-assets/libs/dragula/dragula.min.js    |     1 [32m+[m
+ public/admin-assets/libs/dropzone/dropzone-min.js  |     2 [32m+[m
+ public/admin-assets/libs/dropzone/dropzone.css.tmp |   Bin [31m0[m -> [32m21684[m bytes
+ public/admin-assets/libs/echarts/echarts.min.js    |    45 [32m+[m
+ .../admin-assets/libs/feather-icons/feather.min.js |    13 [32m+[m
+ .../libs/fg-emoji-picker/fgEmojiPicker.js          |   675 [32m+[m
+ .../filepond-plugin-file-encode.min.js             |     9 [32m+[m
+ .../filepond-plugin-file-validate-size.min.js      |     9 [32m+[m
+ .../filepond-plugin-image-exif-orientation.min.js  |     9 [32m+[m
+ .../filepond-plugin-image-preview.min.css.tmp      |   Bin [31m0[m -> [32m20219[m bytes
+ .../filepond-plugin-image-preview.min.js           |     9 [32m+[m
+ .../libs/filepond/filepond.min.css.tmp             |   Bin [31m0[m -> [32m34359[m bytes
+ public/admin-assets/libs/filepond/filepond.min.js  |     9 [32m+[m
+ .../libs/fullcalendar/index.global.min.js          |     6 [32m+[m
+ .../libs/glightbox/css/glightbox.min.css.tmp       |   Bin [31m0[m -> [32m30661[m bytes
+ .../libs/glightbox/js/glightbox.min.js             |     1 [32m+[m
+ public/admin-assets/libs/gridjs/gridjs.umd.js      |     2 [32m+[m
+ .../libs/gridjs/theme/mermaid.min.css.tmp          |   Bin [31m0[m -> [32m24686[m bytes
+ .../libs/isotope-layout/isotope.pkgd.min.js        |    12 [32m+[m
+ .../libs/jsvectormap/jsvectormap.min.css           |     1 [32m+[m
+ .../libs/jsvectormap/jsvectormap.min.js            |     1 [32m+[m
+ .../libs/jsvectormap/maps/world-merc.js            |     1 [32m+[m
+ public/admin-assets/libs/list.js/list.min.js       |     2 [32m+[m
+ .../libs/list.pagination.js/list.pagination.min.js |     1 [32m+[m
+ .../libs/masonry-layout/masonry.pkgd.min.js        |     9 [32m+[m
+ public/admin-assets/libs/moment/min/moment.min.js  |     1 [32m+[m
+ public/admin-assets/libs/moment/moment.js          |  4602 [32m+++++[m
+ .../admin-assets/libs/multi.js/multi.min.css.tmp   |   Bin [31m0[m -> [32m18202[m bytes
+ public/admin-assets/libs/multi.js/multi.min.js     |     3 [32m+[m
+ public/admin-assets/libs/multi.js/multi.min.js.tmp |   Bin [31m0[m -> [32m16912[m bytes
+ public/admin-assets/libs/node-waves/waves.min.js   |     2 [32m+[m
+ .../libs/nouislider/nouislider.min.css.tmp         |   Bin [31m0[m -> [32m21132[m bytes
+ .../admin-assets/libs/nouislider/nouislider.min.js |     1 [32m+[m
+ public/admin-assets/libs/particles.js/particles.js |  1541 [32m++[m
+ public/admin-assets/libs/prismjs/prism.js          |  1946 [32m++[m
+ .../admin-assets/libs/quill/quill.bubble.css.tmp   |   Bin [31m0[m -> [32m42185[m bytes
+ public/admin-assets/libs/quill/quill.core.css.tmp  |   Bin [31m0[m -> [32m25932[m bytes
+ public/admin-assets/libs/quill/quill.min.js        |     8 [32m+[m
+ public/admin-assets/libs/quill/quill.snow.css.tmp  |   Bin [31m0[m -> [32m41655[m bytes
+ public/admin-assets/libs/rater-js/index.js         |   442 [32m+[m
+ .../libs/shepherd.js/css/shepherd.css.tmp          |   Bin [31m0[m -> [32m20329[m bytes
+ .../libs/shepherd.js/js/shepherd.min.js            |   105 [32m+[m
+ .../admin-assets/libs/simplebar/simplebar.min.js   |    10 [32m+[m
+ .../admin-assets/libs/sortablejs/Sortable.min.js   |     2 [32m+[m
+ .../libs/sweetalert2/sweetalert2.min.css.tmp       |   Bin [31m0[m -> [32m47291[m bytes
+ .../libs/sweetalert2/sweetalert2.min.js            |     5 [32m+[m
+ .../admin-assets/libs/swiper/swiper-bundle.min.css |    13 [32m+[m
+ .../admin-assets/libs/swiper/swiper-bundle.min.js  |    14 [32m+[m
+ public/admin-assets/libs/wnumb/wNumb.min.js        |     1 [32m+[m
+ public/css/animate.min.css                         |  2385 [32m+++[m
+ public/css/bootstrap.css                           |     6 [32m+[m
+ public/css/jquery.fancybox.min.css                 |     1 [32m+[m
+ public/css/jqueryui.min.css                        |  1314 [32m++[m
+ public/css/magnific-popup.min.css                  |     1 [32m+[m
+ public/css/map.min.css                             |     1 [32m+[m
+ public/css/odometer.min.css                        |    83 [32m+[m
+ public/css/sib-styles.css                          |  3431 [32m++++[m
+ public/css/styles.css                              |  9599 [32m++++++++++[m
+ public/css/sweetalert2.min.css                     |     1 [32m+[m
+ public/css/swiper-bundle.min.css                   |    13 [32m+[m
+ public/favicon.ico                                 |     0
+ public/font/fonts.css                              |    59 [32m+[m
+ public/icons/icomoon/fonts/icomoon1e09.eot         |   Bin [31m0[m -> [32m33856[m bytes
+ public/icons/icomoon/fonts/icomoon1e09.svg         |    93 [32m+[m
+ public/icons/icomoon/fonts/icomoon1e09.ttf         |   Bin [31m0[m -> [32m33692[m bytes
+ public/icons/icomoon/fonts/icomoon1e09.woff        |   Bin [31m0[m -> [32m33768[m bytes
+ public/icons/icomoon/style.css                     |   276 [32m+[m
+ public/icons/play.svg                              |     4 [32m+[m
+ public/images/avatar/avatar-1.jpg                  |   Bin [31m0[m -> [32m43103[m bytes
+ public/images/avatar/avatar-10.jpg                 |   Bin [31m0[m -> [32m42529[m bytes
+ public/images/avatar/avatar-11.jpg                 |   Bin [31m0[m -> [32m14096[m bytes
+ public/images/avatar/avatar-12.jpg                 |   Bin [31m0[m -> [32m3690[m bytes
+ public/images/avatar/avatar-2.jpg                  |   Bin [31m0[m -> [32m18988[m bytes
+ public/images/avatar/avatar-3.jpg                  |   Bin [31m0[m -> [32m4189[m bytes
+ public/images/avatar/avatar-4.jpg                  |   Bin [31m0[m -> [32m19172[m bytes
+ public/images/avatar/avatar-5.jpg                  |   Bin [31m0[m -> [32m25392[m bytes
+ public/images/avatar/avatar-6.jpg                  |   Bin [31m0[m -> [32m18044[m bytes
+ public/images/avatar/avatar-7.jpg                  |   Bin [31m0[m -> [32m12601[m bytes
+ public/images/avatar/avatar-8.jpg                  |   Bin [31m0[m -> [32m12834[m bytes
+ public/images/avatar/avatar-9.jpg                  |   Bin [31m0[m -> [32m11833[m bytes
+ public/images/blog/blog-item-1.jpg                 |   Bin [31m0[m -> [32m77660[m bytes
+ public/images/blog/blog-item-10.jpg                |   Bin [31m0[m -> [32m55226[m bytes
+ public/images/blog/blog-item-2.jpg                 |   Bin [31m0[m -> [32m44359[m bytes
+ public/images/blog/blog-item-3.jpg                 |   Bin [31m0[m -> [32m57205[m bytes
+ public/images/blog/blog-item-4.jpg                 |   Bin [31m0[m -> [32m56407[m bytes
+ public/images/blog/blog-item-5.jpg                 |   Bin [31m0[m -> [32m43400[m bytes
+ public/images/blog/blog-item-6.jpg                 |   Bin [31m0[m -> [32m39083[m bytes
+ public/images/blog/blog-item-7.jpg                 |   Bin [31m0[m -> [32m77062[m bytes
+ public/images/blog/blog-item-8.jpg                 |   Bin [31m0[m -> [32m33078[m bytes
+ public/images/blog/blog-item-9.jpg                 |   Bin [31m0[m -> [32m68290[m bytes
+ public/images/blog/blog-item-large-1.jpg           |   Bin [31m0[m -> [32m66268[m bytes
+ public/images/blog/blog-item-large-2.jpg           |   Bin [31m0[m -> [32m73622[m bytes
+ public/images/blog/blog-item-large-3.jpg           |   Bin [31m0[m -> [32m91008[m bytes
+ public/images/blog/blog-item-large-4.jpg           |   Bin [31m0[m -> [32m44369[m bytes
+ public/images/blog/blog-item-list-1.jpg            |   Bin [31m0[m -> [32m73739[m bytes
+ public/images/blog/blog-item-list-2.jpg            |   Bin [31m0[m -> [32m39627[m bytes
+ public/images/blog/blog-item-list-3.jpg            |   Bin [31m0[m -> [32m75735[m bytes
+ public/images/blog/blog-item-list-4.jpg            |   Bin [31m0[m -> [32m76756[m bytes
+ public/images/blog/blog-item-list-5.jpg            |   Bin [31m0[m -> [32m37503[m bytes
+ public/images/blog/blog-thumbs-main-1.jpg          |   Bin [31m0[m -> [32m137468[m bytes
+ public/images/blog/blog-thumbs-main-2.jpg          |   Bin [31m0[m -> [32m112820[m bytes
+ public/images/blog/recent-post-1.jpg               |   Bin [31m0[m -> [32m28546[m bytes
+ public/images/blog/recent-post-2.jpg               |   Bin [31m0[m -> [32m43608[m bytes
+ public/images/blog/recent-post-3.jpg               |   Bin [31m0[m -> [32m48550[m bytes
+ public/images/blog/recent-post-4.jpg               |   Bin [31m0[m -> [32m22567[m bytes
+ public/images/blog/recent-post-5.jpg               |   Bin [31m0[m -> [32m60451[m bytes
+ public/images/blog/recent-post-6.jpg               |   Bin [31m0[m -> [32m23358[m bytes
+ public/images/blog/recent-post-7.jpg               |   Bin [31m0[m -> [32m72627[m bytes
+ public/images/blog/thumbs-1.jpg                    |   Bin [31m0[m -> [32m39678[m bytes
+ public/images/blog/thumbs-2.jpg                    |   Bin [31m0[m -> [32m45141[m bytes
+ public/images/dashboard/house-db-1.jpg             |   Bin [31m0[m -> [32m33309[m bytes
+ public/images/dashboard/house-db-2.jpg             |   Bin [31m0[m -> [32m24222[m bytes
+ public/images/dashboard/house-db-3.jpg             |   Bin [31m0[m -> [32m32147[m bytes
+ public/images/dashboard/house-db-5.jpg             |   Bin [31m0[m -> [32m22928[m bytes
+ public/images/dashboard/house-db-6.jpg             |   Bin [31m0[m -> [32m26784[m bytes
+ public/images/favicon.svg                          |     4 [32m+[m
+ public/images/home/home-1.jpg                      |   Bin [31m0[m -> [32m71787[m bytes
+ public/images/home/home-10.jpg                     |   Bin [31m0[m -> [32m65996[m bytes
+ public/images/home/home-2.jpg                      |   Bin [31m0[m -> [32m61149[m bytes
+ public/images/home/home-3.1.jpg                    |   Bin [31m0[m -> [32m46856[m bytes
+ public/images/home/home-3.jpg                      |   Bin [31m0[m -> [32m32780[m bytes
+ public/images/home/home-4.1.jpg                    |   Bin [31m0[m -> [32m39201[m bytes
+ public/images/home/home-4.jpg                      |   Bin [31m0[m -> [32m48046[m bytes
+ public/images/home/home-5.1.jpg                    |   Bin [31m0[m -> [32m91667[m bytes
+ public/images/home/home-5.jpg                      |   Bin [31m0[m -> [32m73454[m bytes
+ public/images/home/home-6.1.jpg                    |   Bin [31m0[m -> [32m100056[m bytes
+ public/images/home/home-6.jpg                      |   Bin [31m0[m -> [32m83067[m bytes
+ public/images/home/home-7.jpg                      |   Bin [31m0[m -> [32m83286[m bytes
+ public/images/home/home-8.jpg                      |   Bin [31m0[m -> [32m101299[m bytes
+ public/images/home/home-9.jpg                      |   Bin [31m0[m -> [32m37434[m bytes
+ public/images/home/home-lage-1.jpg                 |   Bin [31m0[m -> [32m85000[m bytes
+ public/images/home/home-list-1.1.jpg               |   Bin [31m0[m -> [32m53023[m bytes
+ public/images/home/home-list-1.2.jpg               |   Bin [31m0[m -> [32m24571[m bytes
+ public/images/home/home-list-1.jpg                 |   Bin [31m0[m -> [32m55091[m bytes
+ public/images/home/home-list-10.jpg                |   Bin [31m0[m -> [32m55198[m bytes
+ public/images/home/home-list-11.jpg                |   Bin [31m0[m -> [32m75360[m bytes
+ public/images/home/home-list-12.jpg                |   Bin [31m0[m -> [32m64661[m bytes
+ public/images/home/home-list-2.1.jpg               |   Bin [31m0[m -> [32m52091[m bytes
+ public/images/home/home-list-2.2.jpg               |   Bin [31m0[m -> [32m55902[m bytes
+ public/images/home/home-list-2.jpg                 |   Bin [31m0[m -> [32m94947[m bytes
+ public/images/home/home-list-3.1.jpg               |   Bin [31m0[m -> [32m75716[m bytes
+ public/images/home/home-list-3.2.jpg               |   Bin [31m0[m -> [32m39160[m bytes
+ public/images/home/home-list-3.jpg                 |   Bin [31m0[m -> [32m85123[m bytes
+ public/images/home/home-list-4.1.jpg               |   Bin [31m0[m -> [32m27616[m bytes
+ public/images/home/home-list-4.jpg                 |   Bin [31m0[m -> [32m63074[m bytes
+ public/images/home/home-list-5.1.jpg               |   Bin [31m0[m -> [32m58561[m bytes
+ public/images/home/home-list-5.jpg                 |   Bin [31m0[m -> [32m34262[m bytes
+ public/images/home/home-list-6.1.jpg               |   Bin [31m0[m -> [32m68340[m bytes
+ public/images/home/home-list-6.jpg                 |   Bin [31m0[m -> [32m59826[m bytes
+ public/images/home/home-list-7.1.jpg               |   Bin [31m0[m -> [32m49354[m bytes
+ public/images/home/home-list-7.jpg                 |   Bin [31m0[m -> [32m80009[m bytes
+ public/images/home/home-list-8.jpg                 |   Bin [31m0[m -> [32m81067[m bytes
+ public/images/home/home-list-9.jpg                 |   Bin [31m0[m -> [32m31680[m bytes
+ public/images/location/ui-icons.html               |     3 [32m+[m
+ public/images/logo/brand-1.png                     |   Bin [31m0[m -> [32m2527[m bytes
+ public/images/logo/brand-2.png                     |   Bin [31m0[m -> [32m2892[m bytes
+ public/images/logo/brand-3.png                     |   Bin [31m0[m -> [32m2931[m bytes
+ public/images/logo/brand-4.png                     |   Bin [31m0[m -> [32m2030[m bytes
+ public/images/logo/brand-5.png                     |   Bin [31m0[m -> [32m2406[m bytes
+ public/images/logo/brand-6.png                     |   Bin [31m0[m -> [32m2192[m bytes
+ public/images/logo/facebook.svg                    |    11 [32m+[m
+ public/images/logo/google.svg                      |    13 [32m+[m
+ public/images/logo/logo-2.svg                      |    11 [32m+[m
+ public/images/logo/logo-dark.html                  |     3 [32m+[m
+ public/images/logo/logo.svg                        |    11 [32m+[m
+ public/images/logo/twitter.svg                     |     3 [32m+[m
+ public/images/page-title/page-title-1.jpg          |   Bin [31m0[m -> [32m117336[m bytes
+ public/images/page-title/page-title-10.jpg         |   Bin [31m0[m -> [32m111418[m bytes
+ public/images/page-title/page-title-11.jpg         |   Bin [31m0[m -> [32m114052[m bytes
+ public/images/page-title/page-title-12.jpg         |   Bin [31m0[m -> [32m35835[m bytes
+ public/images/page-title/page-title-13.jpg         |   Bin [31m0[m -> [32m50195[m bytes
+ public/images/page-title/page-title-14.jpg         |   Bin [31m0[m -> [32m33508[m bytes
+ public/images/page-title/page-title-15.jpg         |   Bin [31m0[m -> [32m50186[m bytes
+ public/images/page-title/page-title-16.jpg         |   Bin [31m0[m -> [32m23854[m bytes
+ public/images/page-title/page-title-17.jpg         |   Bin [31m0[m -> [32m376373[m bytes
+ public/images/page-title/page-title-18.jpg         |   Bin [31m0[m -> [32m339552[m bytes
+ public/images/page-title/page-title-19.jpg         |   Bin [31m0[m -> [32m263250[m bytes
+ public/images/page-title/page-title-2.jpg          |   Bin [31m0[m -> [32m146010[m bytes
+ public/images/page-title/page-title-20.jpg         |   Bin [31m0[m -> [32m276438[m bytes
+ public/images/page-title/page-title-21.jpg         |   Bin [31m0[m -> [32m259844[m bytes
+ public/images/page-title/page-title-3.jpg          |   Bin [31m0[m -> [32m149771[m bytes
+ public/images/page-title/page-title-4.jpg          |   Bin [31m0[m -> [32m213968[m bytes
+ public/images/page-title/page-title-5.jpg          |   Bin [31m0[m -> [32m109251[m bytes
+ public/images/page-title/page-title-6.jpg          |   Bin [31m0[m -> [32m111215[m bytes
+ public/images/page-title/page-title-7.jpg          |   Bin [31m0[m -> [32m228025[m bytes
+ public/images/page-title/page-title-8.jpg          |   Bin [31m0[m -> [32m161577[m bytes
+ public/images/page-title/page-title-9.jpg          |   Bin [31m0[m -> [32m234395[m bytes
+ public/images/section/agency-detail.jpg            |   Bin [31m0[m -> [32m302319[m bytes
+ public/images/section/agent-1.1.jpg                |   Bin [31m0[m -> [32m273799[m bytes
+ public/images/section/agent-1.jpg                  |   Bin [31m0[m -> [32m58193[m bytes
+ public/images/section/agent-10.jpg                 |   Bin [31m0[m -> [32m71397[m bytes
+ public/images/section/agent-11.jpg                 |   Bin [31m0[m -> [32m59572[m bytes
+ public/images/section/agent-12.jpg                 |   Bin [31m0[m -> [32m65632[m bytes
+ public/images/section/agent-2.1.jpg                |   Bin [31m0[m -> [32m55756[m bytes
+ public/images/section/agent-2.jpg                  |   Bin [31m0[m -> [32m34769[m bytes
+ public/images/section/agent-3.jpg                  |   Bin [31m0[m -> [32m71743[m bytes
+ public/images/section/agent-4.jpg                  |   Bin [31m0[m -> [32m68827[m bytes
+ public/images/section/agent-5.jpg                  |   Bin [31m0[m -> [32m73760[m bytes
+ public/images/section/agent-6.jpg                  |   Bin [31m0[m -> [32m65171[m bytes
+ public/images/section/agent-7.jpg                  |   Bin [31m0[m -> [32m67314[m bytes
+ public/images/section/agent-8.jpg                  |   Bin [31m0[m -> [32m62359[m bytes
+ public/images/section/agent-9.jpg                  |   Bin [31m0[m -> [32m81886[m bytes
+ public/images/section/banner-2.jpg                 |   Bin [31m0[m -> [32m345922[m bytes
+ public/images/section/banner-3.jpg                 |   Bin [31m0[m -> [32m181894[m bytes
+ public/images/section/banner-4.jpg                 |   Bin [31m0[m -> [32m59850[m bytes
+ public/images/section/banner-5.jpg                 |   Bin [31m0[m -> [32m181311[m bytes
+ public/images/section/banner.jpg                   |   Bin [31m0[m -> [32m186535[m bytes
+ public/images/section/card-about-1.jpg             |   Bin [31m0[m -> [32m35613[m bytes
+ public/images/section/card-about-2.jpg             |   Bin [31m0[m -> [32m28621[m bytes
+ public/images/section/category-1.png               |   Bin [31m0[m -> [32m54527[m bytes
+ public/images/section/category-10.jpg              |   Bin [31m0[m -> [32m57583[m bytes
+ public/images/section/category-2.png               |   Bin [31m0[m -> [32m30519[m bytes
+ public/images/section/category-3.png               |   Bin [31m0[m -> [32m51949[m bytes
+ public/images/section/category-4.png               |   Bin [31m0[m -> [32m44851[m bytes
+ public/images/section/category-5.png               |   Bin [31m0[m -> [32m43227[m bytes
+ public/images/section/category-6.jpg               |   Bin [31m0[m -> [32m49722[m bytes
+ public/images/section/category-7.jpg               |   Bin [31m0[m -> [32m46916[m bytes
+ public/images/section/category-8.jpg               |   Bin [31m0[m -> [32m64976[m bytes
+ public/images/section/category-9.jpg               |   Bin [31m0[m -> [32m50859[m bytes
+ public/images/section/cursor.png                   |   Bin [31m0[m -> [32m641[m bytes
+ public/images/section/features-properties-1.jpg    |   Bin [31m0[m -> [32m200955[m bytes
+ public/images/section/features-properties-2.jpg    |   Bin [31m0[m -> [32m192103[m bytes
+ public/images/section/features-properties-3.jpg    |   Bin [31m0[m -> [32m88499[m bytes
+ public/images/section/features-properties-4.jpg    |   Bin [31m0[m -> [32m133358[m bytes
+ public/images/section/features-properties-5.jpg    |   Bin [31m0[m -> [32m83864[m bytes
+ public/images/section/floor-1.png                  |   Bin [31m0[m -> [32m38713[m bytes
+ public/images/section/floor-2.png                  |   Bin [31m0[m -> [32m52035[m bytes
+ public/images/section/floor-3.jpg                  |   Bin [31m0[m -> [32m41169[m bytes
+ public/images/section/location-1.jpg               |   Bin [31m0[m -> [32m64504[m bytes
+ public/images/section/location-10.jpg              |   Bin [31m0[m -> [32m91275[m bytes
+ public/images/section/location-11.jpg              |   Bin [31m0[m -> [32m70330[m bytes
+ public/images/section/location-12.jpg              |   Bin [31m0[m -> [32m44117[m bytes
+ public/images/section/location-13.jpg              |   Bin [31m0[m -> [32m65864[m bytes
+ public/images/section/location-14.jpg              |   Bin [31m0[m -> [32m54067[m bytes
+ public/images/section/location-15.jpg              |   Bin [31m0[m -> [32m52508[m bytes
+ public/images/section/location-16.jpg              |   Bin [31m0[m -> [32m26514[m bytes
+ public/images/section/location-17.jpg              |   Bin [31m0[m -> [32m27795[m bytes
+ public/images/section/location-2.jpg               |   Bin [31m0[m -> [32m47574[m bytes
+ public/images/section/location-3.jpg               |   Bin [31m0[m -> [32m75252[m bytes
+ public/images/section/location-4.jpg               |   Bin [31m0[m -> [32m51395[m bytes
+ public/images/section/location-5.jpg               |   Bin [31m0[m -> [32m75928[m bytes
+ public/images/section/location-6.jpg               |   Bin [31m0[m -> [32m29661[m bytes
+ public/images/section/location-7.jpg               |   Bin [31m0[m -> [32m69536[m bytes
+ public/images/section/location-8.jpg               |   Bin [31m0[m -> [32m121426[m bytes
+ public/images/section/location-9.jpg               |   Bin [31m0[m -> [32m77695[m bytes
+ public/images/section/process-1.jpg                |   Bin [31m0[m -> [32m83399[m bytes
+ public/images/section/process-2.jpg                |   Bin [31m0[m -> [32m97917[m bytes
+ public/images/section/process-3.jpg                |   Bin [31m0[m -> [32m64997[m bytes
+ public/images/section/properties-details-1.jpg     |   Bin [31m0[m -> [32m151299[m bytes
+ public/images/section/properties-details-10.jpg    |   Bin [31m0[m -> [32m39308[m bytes
+ public/images/section/properties-details-11.jpg    |   Bin [31m0[m -> [32m88183[m bytes
+ public/images/section/properties-details-12.jpg    |   Bin [31m0[m -> [32m83626[m bytes
+ public/images/section/properties-details-13.jpg    |   Bin [31m0[m -> [32m88064[m bytes
+ public/images/section/properties-details-14.jpg    |   Bin [31m0[m -> [32m78853[m bytes
+ public/images/section/properties-details-15.jpg    |   Bin [31m0[m -> [32m48480[m bytes
+ public/images/section/properties-details-2.jpg     |   Bin [31m0[m -> [32m138788[m bytes
+ public/images/section/properties-details-3.jpg     |   Bin [31m0[m -> [32m96276[m bytes
+ public/images/section/properties-details-4.jpg     |   Bin [31m0[m -> [32m108619[m bytes
+ public/images/section/properties-details-5.jpg     |   Bin [31m0[m -> [32m42161[m bytes
+ public/images/section/properties-details-6.jpg     |   Bin [31m0[m -> [32m70972[m bytes
+ public/images/section/properties-details-7.jpg     |   Bin [31m0[m -> [32m81661[m bytes
+ public/images/section/properties-details-8.jpg     |   Bin [31m0[m -> [32m70481[m bytes
+ public/images/section/properties-details-9.jpg     |   Bin [31m0[m -> [32m91108[m bytes
+ public/images/section/properties-gallery-1.jpg     |   Bin [31m0[m -> [32m116533[m bytes
+ public/images/section/properties-gallery-2.jpg     |   Bin [31m0[m -> [32m25001[m bytes
+ public/images/section/properties-gallery-3.jpg     |   Bin [31m0[m -> [32m44383[m bytes
+ public/images/section/properties-gallery-4.jpg     |   Bin [31m0[m -> [32m57430[m bytes
+ public/images/section/properties-gallery-5.jpg     |   Bin [31m0[m -> [32m24328[m bytes
+ public/images/section/properties-video-1.jpg       |   Bin [31m0[m -> [32m51943[m bytes
+ public/images/section/properties-video.jpg         |   Bin [31m0[m -> [32m71038[m bytes
+ public/images/section/property-detail.html         |     3 [32m+[m
+ public/images/section/section-about.jpg            |   Bin [31m0[m -> [32m87193[m bytes
+ public/images/section/section-faq.jpg              |   Bin [31m0[m -> [32m77042[m bytes
+ public/images/section/section-testimonials-1.jpg   |   Bin [31m0[m -> [32m74658[m bytes
+ public/images/section/section-why.jpg              |   Bin [31m0[m -> [32m70152[m bytes
+ public/images/section/tbumb-pagi-1.jpg             |   Bin [31m0[m -> [32m59936[m bytes
+ public/images/section/tbumb-pagi-2.jpg             |   Bin [31m0[m -> [32m36786[m bytes
+ public/images/section/tbumb-pagi-3.jpg             |   Bin [31m0[m -> [32m37071[m bytes
+ public/images/section/tbumb-pagi-4.jpg             |   Bin [31m0[m -> [32m43677[m bytes
+ public/images/section/tbumb-pagi-5.jpg             |   Bin [31m0[m -> [32m32441[m bytes
+ public/images/section/testimonial-1.jpg            |   Bin [31m0[m -> [32m35100[m bytes
+ public/images/section/testimonial-2.jpg            |   Bin [31m0[m -> [32m152563[m bytes
+ public/index.php                                   |    55 [32m+[m
+ public/js/ScrollSmooth.js                          |   473 [32m+[m
+ public/js/ScrollTrigger.min.js                     |    11 [32m+[m
+ public/js/SplitText.min.js                         |   290 [32m+[m
+ public/js/bootstrap.min.js                         |     7 [32m+[m
+ public/js/carousel.js                              |   237 [32m+[m
+ public/js/chart-init.js                            |    50 [32m+[m
+ public/js/chart.js                                 | 11040 [32m+++++++++++[m
+ public/js/counter.js                               |    25 [32m+[m
+ public/js/gsap.min.js                              |    10 [32m+[m
+ public/js/handleGsap.js                            |   261 [32m+[m
+ public/js/infinityslide.js                         |   213 [32m+[m
+ public/js/isotope.pkgd.min.js                      |    12 [32m+[m
+ public/js/jquery.fancybox.js                       |  5238 [32m+++++[m
+ public/js/jquery.min.js                            |     2 [32m+[m
+ public/js/jquery.nice-select.min.js                |   192 [32m+[m
+ public/js/jqueryui.min.js                          | 19062 [32m+++++++++++++++++++[m
+ public/js/magnific-popup.min.js                    |     4 [32m+[m
+ public/js/main.js                                  |   729 [32m+[m
+ public/js/map.js                                   |   262 [32m+[m
+ public/js/map.min.js                               |    45 [32m+[m
+ public/js/map1.js                                  |    46 [32m+[m
+ public/js/map2.js                                  |   175 [32m+[m
+ public/js/odometer.min.js                          |     2 [32m+[m
+ public/js/parallaxie.js                            |    91 [32m+[m
+ public/js/splitting.min.js                         |    30 [32m+[m
+ public/js/sweetalert2.all.min.js                   |     6 [32m+[m
+ public/js/swiper-bundle.min.js                     |    14 [32m+[m
+ public/js/tinymce.min.js                           |    42 [32m+[m
+ public/robots.txt                                  |     2 [32m+[m
+ public/uploads/posts/20260330084040-d7cVJBV3x8.jpg |   Bin [31m0[m -> [32m325422[m bytes
+ public/uploads/posts/20260330084937-oU0mSvUKiY.jpg |   Bin [31m0[m -> [32m604519[m bytes
+ public/uploads/posts/20260330093407-UV8gexxkiL.jpg |   Bin [31m0[m -> [32m505594[m bytes
+ .../uploads/posts/20260330094449-V0HC1el8v9.jpeg   |   Bin [31m0[m -> [32m481477[m bytes
+ .../uploads/posts/20260330094449-cAnIyRPhKw.jpeg   |   Bin [31m0[m -> [32m385941[m bytes
+ public/uploads/posts/20260330094449-gKYmUp2oPy.jpg |   Bin [31m0[m -> [32m505594[m bytes
+ public/uploads/posts/20260330094449-mJlf4zXrHc.jpg |   Bin [31m0[m -> [32m606350[m bytes
+ public/uploads/posts/20260330094449-sc8IK4C6QG.jpg |   Bin [31m0[m -> [32m492852[m bytes
+ resources/css/app.css                              |     0
+ resources/js/app.js                                |     1 [32m+[m
+ resources/js/bootstrap.js                          |    28 [32m+[m
+ resources/lang/en/auth.php                         |    20 [32m+[m
+ resources/lang/en/pagination.php                   |    19 [32m+[m
+ resources/lang/en/passwords.php                    |    22 [32m+[m
+ resources/lang/en/validation.php                   |   163 [32m+[m
+ resources/views/backend/admin/dashboard.blade.php  |   392 [32m+[m
+ .../backend/admin/dashboard_content.blade.php      |    93 [32m+[m
+ resources/views/backend/auth/login.blade.php       |   191 [32m+[m
+ resources/views/backend/categories/_form.blade.php |   179 [32m+[m
+ resources/views/backend/categories/_row.blade.php  |    41 [32m+[m
+ .../views/backend/categories/create.blade.php      |    22 [32m+[m
+ resources/views/backend/categories/edit.blade.php  |    24 [32m+[m
+ resources/views/backend/categories/index.blade.php |    55 [32m+[m
+ resources/views/backend/contents/_form.blade.php   |   640 [32m+[m
+ resources/views/backend/contents/create.blade.php  |    22 [32m+[m
+ resources/views/backend/contents/edit.blade.php    |    24 [32m+[m
+ resources/views/backend/contents/index.blade.php   |    81 [32m+[m
+ resources/views/backend/layouts/app.blade.php      |   440 [32m+[m
+ resources/views/backend/menus/_form.blade.php      |   100 [32m+[m
+ resources/views/backend/menus/_row.blade.php       |    47 [32m+[m
+ resources/views/backend/menus/create.blade.php     |    22 [32m+[m
+ resources/views/backend/menus/edit.blade.php       |    24 [32m+[m
+ resources/views/backend/menus/index.blade.php      |    39 [32m+[m
+ resources/views/backend/settings/edit.blade.php    |   190 [32m+[m
+ .../settings/partials/image-field.blade.php        |    25 [32m+[m
+ resources/views/backend/users/_form.blade.php      |    61 [32m+[m
+ resources/views/backend/users/create.blade.php     |    22 [32m+[m
+ resources/views/backend/users/edit.blade.php       |    24 [32m+[m
+ resources/views/backend/users/index.blade.php      |    55 [32m+[m
+ resources/views/frontend/home.blade.php            |     7 [32m+[m
+ resources/views/frontend/layouts/app.blade.php     |    93 [32m+[m
+ resources/views/frontend/news/index.blade.php      |   120 [32m+[m
+ resources/views/frontend/news/show.blade.php       |   116 [32m+[m
+ resources/views/frontend/pages/about.blade.php     |   548 [32m+[m
+ resources/views/frontend/pages/contact.blade.php   |    80 [32m+[m
+ .../frontend/partials/category-tree-item.blade.php |    12 [32m+[m
+ .../frontend/partials/desktop-menu-item.blade.php  |    26 [32m+[m
+ resources/views/frontend/partials/footer.blade.php |   126 [32m+[m
+ .../views/frontend/partials/header-nav.blade.php   |    13 [32m+[m
+ resources/views/frontend/partials/header.blade.php |   123 [32m+[m
+ .../views/frontend/partials/home-body.blade.php    |   965 [32m+[m
+ .../frontend/partials/mobile-menu-item.blade.php   |    23 [32m+[m
+ resources/views/frontend/products/index.blade.php  |   915 [32m+[m
+ resources/views/frontend/products/show.blade.php   |  1279 [32m++[m
+ resources/views/welcome.blade.php                  |   132 [32m+[m
+ routes/api.php                                     |    19 [32m+[m
+ routes/channels.php                                |    18 [32m+[m
+ routes/console.php                                 |    19 [32m+[m
+ routes/web.php                                     |   100 [32m+[m
+ server.php                                         |    21 [32m+[m
+ storage/app/.gitignore                             |     3 [32m+[m
+ storage/app/public/.gitignore                      |     2 [32m+[m
+ storage/framework/.gitignore                       |     9 [32m+[m
+ storage/framework/cache/.gitignore                 |     3 [32m+[m
+ storage/framework/cache/data/.gitignore            |     2 [32m+[m
+ storage/framework/sessions/.gitignore              |     2 [32m+[m
+ storage/framework/testing/.gitignore               |     2 [32m+[m
+ storage/framework/views/.gitignore                 |     2 [32m+[m
+ storage/logs/.gitignore                            |     2 [32m+[m
+ tests/CreatesApplication.php                       |    22 [32m+[m
+ tests/Feature/ExampleTest.php                      |    21 [32m+[m
+ tests/TestCase.php                                 |    10 [32m+[m
+ tests/Unit/ExampleTest.php                         |    18 [32m+[m
+ webpack.mix.js                                     |    17 [32m+[m
+ 1211 files changed, 87170 insertions(+)
